@@ -11,6 +11,10 @@ const Home: NextPage = () => {
 			text: "We Share",
 			url: "https://bill.piyaphat.com",
 		},
+		{
+			text: "OSM Craft Share",
+			url: "https://minecraft.piyaphat.com",
+		},
 	];
 	return (
 		<div className="bg-[#082424] h-full">
