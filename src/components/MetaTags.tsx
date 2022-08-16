@@ -12,8 +12,8 @@ interface Props {}
 const MetaTags: React.FC<Props> = (props) => {
 	return (
 		<Head>
-			<title>Piyaphat.com</title>
-			<meta name="description" content="personal website" />
+			<title>PORTFOLIO</title>
+			<meta name="description" content="PORTFOLIO WEBSITE" />
 			<meta name="theme-color" content="#082424" />
 			<link rel="icon" href="/favicon.ico" />
 		</Head>
