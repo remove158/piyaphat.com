@@ -73,7 +73,7 @@ const Home: NextPage = () => {
 							animate={{ y: 0 }}
 							transition={{ delay: 0.3, stiffness: 120, type: "spring" }}
 						>
-							I'm a pro<span className="font-normal">gamer.</span>
+							I{","}m a pro<span className="font-normal">gamer.</span>
 						</motion.div>
 					</motion.div>
 
