@@ -12,7 +12,7 @@ const Home: NextPage = () => {
 			url: "https://bill.piyaphat.com",
 		},
 		{
-			text: "OSM Craft Share",
+			text: "OSM Craft",
 			url: "https://minecraft.piyaphat.com",
 		},
 	];

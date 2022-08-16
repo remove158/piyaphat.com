@@ -76,7 +76,29 @@ const Home: NextPage = () => {
 							I{","}m a pro<span className="font-normal">gamer.</span>
 						</motion.div>
 					</motion.div>
-
+					<Link href="/showcase">
+						<motion.button
+							className="py-3  w-3/4 max-w-md flex-none border border-lime-200 text-lime-200 rounded-lg"
+							initial={{ scale: 0.2, y: 50, rotate: 180 }}
+							animate={{ rotate: 360, scale: 1, y: 0 }}
+							whileHover={{
+								scale: 1.1,
+								color: "#bef264",
+								borderColor: "#bef264",
+								transition: {
+									repeat: Infinity,
+									repeatType: "reverse",
+									duration: 0.3,
+								},
+							}}
+							transition={{
+								duration: 0.3,
+								delay: 0.2,
+							}}
+						>
+							SHOW CASE
+						</motion.button>
+					</Link>
 					<motion.div
 						className="w-3/4 max-w-md "
 						whileHover={{
@@ -119,29 +141,6 @@ const Home: NextPage = () => {
 							/>
 						</div>
 					</motion.div>
-					<Link href="/showcase">
-						<motion.button
-							className="py-3  w-3/4 max-w-md flex-none border border-lime-200 text-lime-200 rounded-lg"
-							initial={{ scale: 0.2, y: 50, rotate: 180 }}
-							animate={{ rotate: 360, scale: 1, y: 0 }}
-							whileHover={{
-								scale: 1.1,
-								color: "#bef264",
-								borderColor: "#bef264",
-								transition: {
-									repeat: Infinity,
-									repeatType: "reverse",
-									duration: 0.3,
-								},
-							}}
-							transition={{
-								duration: 0.3,
-								delay: 0.2,
-							}}
-						>
-							SHOW CASE
-						</motion.button>
-					</Link>
 				</div>
 			</div>
 		</div>
