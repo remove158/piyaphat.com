@@ -10,10 +10,13 @@ const Home: NextPage = () => {
 		{
 			text: "We Share",
 			url: "https://bill.piyaphat.com",
+			description:
+				"เว็บไซต์สำหรับหารบิลกับเพื่อนแบบ realtime เราช่วยให้คุณสามารถจัดแจงค่าใช้จ่ายได้อย่างง่ายดาย",
 		},
 		{
 			text: "OSM Craft",
 			url: "https://minecraft.piyaphat.com",
+			description: "จำลอง minecraft สร้างโดยใช้ Three.js พร้อมระบบฟิสิกส์",
 		},
 	];
 	return (
@@ -61,10 +64,10 @@ const Home: NextPage = () => {
 				</div>
 				<div className="flex-1 flex flex-col items-center  text-white">
 					{contacts.map((contact, idx) => (
-						<motion.button
+						<motion.div
 							key={idx}
 							onClick={() => router.push(contact.url)}
-							className="my-4 py-2  rounded-md border  w-3/4"
+							className="my-4 p-4  rounded-md border  w-3/4 flex flex-col"
 							initial={{ x: "-100vw" }}
 							animate={{ x: 0 }}
 							whileHover={{
@@ -79,8 +82,21 @@ const Home: NextPage = () => {
 							}}
 							transition={{ delay: 0.2 * (idx + 1), type: "spring" }}
 						>
-							{contact.text}
-						</motion.button>
+							<motion.h1
+								className="text-xl"
+								initial={{ x: -100 }}
+								animate={{ x: 0 }}
+							>
+								{contact.text}
+							</motion.h1>
+							<motion.span
+								className="font-thin"
+								initial={{ x: -100 }}
+								animate={{ x: 0 }}
+							>
+								{contact.description}
+							</motion.span>
+						</motion.div>
 					))}
 				</div>
 			</div>
