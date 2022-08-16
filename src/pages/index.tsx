@@ -10,7 +10,7 @@ const Home: NextPage = () => {
 					<motion.div
 						className=" text-white text-xl font-bold"
 						initial={{ y: -100 }}
-						animate={{ y: 20 }}
+						animate={{ y: 0 }}
 						transition={{
 							delay: 0.2,
 							type: "spring",
