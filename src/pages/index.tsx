@@ -92,7 +92,7 @@ const Home: NextPage = () => {
 					<Link href="/showcase">
 						<motion.button
 							className="py-3  w-3/4 max-w-md flex-none border border-lime-200 text-lime-200 rounded-lg"
-							initial={{ scale: 0.2, y: 50, rotate: 180 }}
+							initial={{ scale: 0, y: 50, rotate: 180 }}
 							animate={{ rotate: 360, scale: 1, y: 0 }}
 							whileHover={{
 								scale: 1.1,
@@ -106,7 +106,7 @@ const Home: NextPage = () => {
 							}}
 							transition={{
 								duration: 0.3,
-								delay: 0.2,
+								delay: 0.6,
 							}}
 						>
 							SHOW CASE
@@ -118,7 +118,7 @@ const Home: NextPage = () => {
 							transition: {
 								repeat: Infinity,
 								repeatType: "reverse",
-								duration: 0.4,
+								duration: 1,
 							},
 						}}
 						className="text-white flex-none flex flex-col items-center h-1/4"
@@ -127,7 +127,7 @@ const Home: NextPage = () => {
 							className="font-thin"
 							initial={{ y: "100vh" }}
 							animate={{ y: 0 }}
-							transition={{ delay: 0.2, stiffness: 120, type: "spring" }}
+							transition={{ delay: 0.3, stiffness: 120, type: "spring" }}
 						>
 							Hello, My name is{" "}
 							<span className="font-normal">Piyaphat Pinyo.</span>
