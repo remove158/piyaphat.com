@@ -61,6 +61,11 @@ const Timeline: React.FC<Props> = (props) => {
 			text: "LINE HACKATHON 1st Runner up",
 			img: "/images/timeline/linehack_01.jpeg",
 		},
+		{
+			time: "June - July 2022",
+			text: "Life@LINE MAN Wongnai | Intern - Software Engineer, Backend (Go) ",
+			img: "/images/timeline/intern.jpeg",
+		},
 	];
 	return (
 		<div className="m-4">
