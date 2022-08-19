@@ -6,15 +6,15 @@ import React from "react";
 //-------------------------------------------------------------------------//
 interface Props {}
 
-const Item = ({ text, time, img }: any) => (
+const Item = ({ text, time, img, idx }: any) => (
 	<motion.li
 		initial={{ x: -200 }}
 		whileInView={{ x: 0 }}
 		viewport={{ once: true }}
-		transition={{ type: "spring" }}
+		transition={{ type: "tween" }}
 	>
 		<div
-			className="rounded-lg hover:rounded-md  group p-8 py-10 hover:py-16 text-left bg-local bg-gray-500 bg-center  transition-all duration-1000 bg-no-repeat bg-blend-multiply bg-cover my-10  hover:bg-top hover:bg-blend-soft-light"
+			className="rounded-lg hover:rounded-md  ring ring-white/20 ring-offset-1 hover:ring-white/40 group p-8 py-10 hover:py-16 text-left bg-local bg-gray-500 bg-center  transition-all duration-1000 bg-no-repeat bg-blend-multiply bg-cover my-10  hover:bg-top hover:bg-blend-soft-light"
 			style={{ backgroundImage: `url("${img}")` }}
 		>
 			<time className="text-sm font-normal leading-none text-gray-50 group-hover:text-gray-200 ">
@@ -75,7 +75,13 @@ const Timeline: React.FC<Props> = (props) => {
 			</motion.h2>
 			<motion.ol className="relative ">
 				{timeLines.map((item, idx) => (
-					<Item time={item.time} img={item.img} key={idx} text={item.text} />
+					<Item
+						time={item.time}
+						img={item.img}
+						key={idx}
+						idx={idx}
+						text={item.text}
+					/>
 				))}
 			</motion.ol>
 		</div>
