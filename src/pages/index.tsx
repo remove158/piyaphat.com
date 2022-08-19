@@ -10,8 +10,8 @@ const Home: NextPage = () => {
 				<div className=" flex justify-between p-4">
 					<motion.h1
 						className=" text-white text-xl font-bold"
-						initial={{ y: -100 }}
-						animate={{ y: 0 }}
+						initial={{ scale: 0, y: -50 }}
+						animate={{ scale: 1, y: 0 }}
 						transition={{
 							delay: 0.2,
 							type: "spring",
@@ -22,10 +22,10 @@ const Home: NextPage = () => {
 					</motion.h1>
 					<motion.span
 						className="text-lime-200 font-bold"
-						initial={{ y: -100 }}
-						animate={{ y: 0 }}
+						initial={{ scale: 0, y: -50 }}
+						animate={{ scale: 1, y: 0 }}
 						transition={{
-							delay: 0.4,
+							delay: 0.3,
 							type: "spring",
 							stiffness: 120,
 						}}

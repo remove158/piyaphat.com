@@ -31,13 +31,13 @@ const Home: NextPage = () => {
 		},
 	];
 	return (
-		<div className="bg-[#082424] h-full">
+		<div className="bg-[#082424] h-full  pb-6">
 			<div className="container mx-auto flex flex-col min-h-screen h-full">
 				<div className="flex-none flex justify-between p-4">
 					<motion.div
 						className=" text-white text-xl font-bold"
-						initial={{ y: -100 }}
-						animate={{ y: 0 }}
+						initial={{ scale: 0, y: -100 }}
+						animate={{ scale: 1, y: 0 }}
 						transition={{
 							delay: 0.2,
 							type: "spring",
