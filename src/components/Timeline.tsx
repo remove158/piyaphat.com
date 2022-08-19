@@ -14,7 +14,7 @@ const Item = ({ text, time, img, idx }: any) => (
 		transition={{ type: "tween" }}
 	>
 		<div
-			className="rounded-lg hover:rounded-md  ring ring-white/20 ring-offset-1 hover:ring-white/40 group p-8 py-10 hover:py-16 text-left bg-local bg-gray-500 bg-center  transition-all duration-1000 bg-no-repeat bg-blend-multiply bg-cover my-10  hover:bg-top hover:bg-blend-soft-light"
+			className="rounded-lg hover:rounded-md  ring ring-white/20 ring-offset-1 hover:ring-white/40 group p-8 py-10 hover:py-20 text-left bg-local bg-gray-500 bg-center  transition-all duration-1000 bg-no-repeat bg-blend-multiply bg-cover my-10   hover:bg-blend-soft-light"
 			style={{ backgroundImage: `url("${img}")` }}
 		>
 			<time className="text-sm font-normal leading-none text-gray-50 group-hover:text-gray-200 ">
