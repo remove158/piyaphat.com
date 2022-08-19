@@ -75,7 +75,7 @@ const Timeline: React.FC<Props> = (props) => {
 			</motion.h2>
 			<motion.ol className="relative ">
 				{timeLines.map((item, idx) => (
-					<Item time={item.time} img={item.img} idx={idx} text={item.text} />
+					<Item time={item.time} img={item.img} key={idx} text={item.text} />
 				))}
 			</motion.ol>
 		</div>
