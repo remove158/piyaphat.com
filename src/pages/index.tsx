@@ -1,13 +1,14 @@
+import Timeline from "@components/Timeline";
 import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import Link from "next/link";
 
 const Home: NextPage = () => {
 	return (
-		<div className="bg-[#082424] h-full">
+		<div className="bg-[#082424] h-full pb-6">
 			<div className="container mx-auto flex flex-col min-h-screen h-full">
 				<div className=" flex justify-between p-4">
-					<motion.div
+					<motion.h1
 						className=" text-white text-xl font-bold"
 						initial={{ y: -100 }}
 						animate={{ y: 0 }}
@@ -18,7 +19,7 @@ const Home: NextPage = () => {
 						}}
 					>
 						PORTFOLIO
-					</motion.div>
+					</motion.h1>
 					<motion.span
 						className="text-lime-200 font-bold"
 						initial={{ y: -100 }}
@@ -142,6 +143,7 @@ const Home: NextPage = () => {
 						</motion.div>
 					</motion.div>
 				</div>
+				<Timeline />
 			</div>
 		</div>
 	);

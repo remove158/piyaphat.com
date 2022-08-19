@@ -1,8 +1,6 @@
-import { LinkPreview } from "@dhaiwat10/react-link-preview";
 import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
 	const colSpan = [
@@ -15,20 +13,20 @@ const Home: NextPage = () => {
 		{
 			text: "WE SHARE",
 			url: "https://bill.piyaphat.com",
-			img: "/weshare.png",
+			img: "/images/showcase/weshare.png",
 			description:
 				"เว็บไซต์สำหรับหารบิลกับเพื่อนแบบ realtime เราช่วยให้คุณสามารถจัดแจงค่าใช้จ่ายได้อย่างง่ายดาย",
 		},
 		{
 			text: "OSM CRAFT",
 			url: "https://minecraft.piyaphat.com",
-			img: "/osmcraft.png",
+			img: "/images/showcase/osmcraft.png",
 			description: "จำลอง minecraft สร้างโดยใช้ Three.js พร้อมระบบฟิสิกส์",
 		},
 		{
 			text: "DISCORD BOT",
 			url: "https://discord.com/api/oauth2/authorize?client_id=805856620026265610&permissions=8&scope=applications.commands%20bot",
-			img: "/discord.png",
+			img: "/images/showcase/discord.png",
 			description: "discord  bot ฟังเพลงกับเพื่อน",
 		},
 	];
