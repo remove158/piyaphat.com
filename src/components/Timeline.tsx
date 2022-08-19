@@ -8,19 +8,22 @@ interface Props {}
 
 const Item = ({ text, time, img }: any) => (
 	<motion.li
-		className="rounded-md  group p-12 text-left bg-local bg-gray-500 bg-center bg-no-repeat bg-cover transition-all my-8 hover:bg-[center_top_-10rem]"
 		initial={{ x: -200 }}
 		whileInView={{ x: 0 }}
 		viewport={{ once: true }}
 		transition={{ type: "spring" }}
-		style={{ backgroundImage: `url("${img}")` }}
 	>
-		<time className="text-sm font-normal leading-none text-gray-100 group-hover:text-gray-800 group-hover:font-bold">
-			{time}
-		</time>
-		<h3 className="text-lg font-semibold text-white group-hover:text-gray-600">
-			{text}
-		</h3>
+		<div
+			className="rounded-lg hover:rounded-md  group p-8 py-10 hover:py-16 text-left bg-local bg-gray-500 bg-center  transition-all duration-1000 bg-no-repeat bg-blend-multiply bg-cover my-10  hover:bg-top hover:bg-blend-soft-light"
+			style={{ backgroundImage: `url("${img}")` }}
+		>
+			<time className="text-sm font-normal leading-none text-gray-50 group-hover:text-gray-200 ">
+				{time}
+			</time>
+			<h3 className="text-lg font-semibold text-gray-50 group-hover:text-gray-200">
+				{text}
+			</h3>
+		</div>
 	</motion.li>
 );
 //-------------------------------------------------------------------------//

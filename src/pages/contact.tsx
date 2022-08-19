@@ -87,6 +87,14 @@ const Home: NextPage = () => {
 								transition={{ delay: 0.3 * (idx + 1), type: "spring" }}
 								className={`card ${colSpan[idx % 4]}`}
 								style={{ backgroundImage: `url("${item.img}")` }}
+								whileHover={{
+									scale: 1.05,
+									transition: {
+										repeat: Infinity,
+										repeatType: "reverse",
+										duration: 0.3,
+									},
+								}}
 							>
 								<p className="mb-5 max-w-xl font-extrabold tracking-tight leading-tight text-white">
 									{item.text}

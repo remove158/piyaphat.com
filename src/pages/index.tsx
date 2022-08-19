@@ -119,7 +119,7 @@ const Home: NextPage = () => {
 							transition: {
 								repeat: Infinity,
 								repeatType: "reverse",
-								duration: 1,
+								duration: 0.5,
 							},
 						}}
 						className="text-white flex-none flex flex-col items-center h-1/4"
@@ -131,7 +131,7 @@ const Home: NextPage = () => {
 							transition={{ delay: 0.3, stiffness: 120, type: "spring" }}
 						>
 							Hello, My name is{" "}
-							<span className="font-normal">Piyaphat Pinyo.</span>
+							<span className="font-bold">Piyaphat Pinyo.</span>
 						</motion.div>
 						<motion.div
 							className="font-thin"
@@ -139,7 +139,7 @@ const Home: NextPage = () => {
 							animate={{ y: 0 }}
 							transition={{ delay: 0.3, stiffness: 120, type: "spring" }}
 						>
-							I{"'"}m a pro<span className="font-normal">gamer.</span>
+							I{"'"}m a pro<span className="font-bold">gamer.</span>
 						</motion.div>
 					</motion.div>
 				</div>
