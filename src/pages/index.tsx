@@ -50,14 +50,6 @@ const Home: NextPage = () => {
 				<div className="items-center flex flex-col justify-between  my-12 gap-12">
 					<motion.div
 						className="w-3/4 max-w-md "
-						whileHover={{
-							rotate: [0, -2, 2],
-							transition: {
-								repeat: Infinity,
-								repeatType: "reverse",
-								duration: 0.5,
-							},
-						}}
 					>
 						<div className="relative">
 							<motion.img
@@ -114,14 +106,6 @@ const Home: NextPage = () => {
 						</motion.button>
 					</Link>
 					<motion.div
-						whileHover={{
-							y: -15,
-							transition: {
-								repeat: Infinity,
-								repeatType: "reverse",
-								duration: 0.5,
-							},
-						}}
 						className="text-white flex-none flex flex-col items-center h-1/4"
 					>
 						<motion.div
