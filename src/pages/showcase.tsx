@@ -16,18 +16,21 @@ const Home: NextPage = () => {
 			img: "/images/showcase/weshare.png",
 			description:
 				"เว็บไซต์สำหรับหารบิลกับเพื่อนแบบ realtime เราช่วยให้คุณสามารถจัดแจงค่าใช้จ่ายได้อย่างง่ายดาย",
+			alt: "bill, share a bill, หารบิล, หารบิลกับเพื่อน, piyaphat.com, bill.piyaphat.com",
 		},
 		{
 			text: "OSM CRAFT",
 			url: "https://minecraft.piyaphat.com",
 			img: "/images/showcase/osmcraft.png",
 			description: "จำลอง minecraft สร้างโดยใช้ Three.js พร้อมระบบฟิสิกส์",
+			alt: "mincraft, osmcraft, three.js, piyaphat.com, minecraft.piyaphat.com",
 		},
 		{
 			text: "DISCORD BOT",
 			url: "https://discord.com/api/oauth2/authorize?client_id=805856620026265610&permissions=8&scope=applications.commands%20bot",
 			img: "/images/showcase/discord.png",
 			description: "discord  bot ฟังเพลงกับเพื่อน",
+			alt: "bot, discord, discord.js, osmbot, musicbot, discord bot, js, nodejs",
 		},
 	];
 	return (
