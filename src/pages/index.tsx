@@ -64,7 +64,7 @@ const Home: NextPage = () => {
 									type: "spring",
 								}}
 								className="w-full rounded-lg shadow-lg shadow-transparent"
-								src="https://scontent.fbkk22-8.fna.fbcdn.net/v/t1.6435-9/131929586_2838394693063109_7824428835215953214_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeE9BKVherPYX12liT_xkmZS2qXpixYVJ0rapemLFhUnSl-F75UsgPJ2GWuaDfX1l5VcczFPGqvQpVV4GOih8REa&_nc_ohc=N1g2dS7gmlYAX9ZQ1I1&_nc_ht=scontent.fbkk22-8.fna&oh=00_AT-wGDzQXNwGe-QMu6UUUg_h7s3M2T-Yt900HwGOGr5Ksw&oe=6320C125"
+								src="/images/profile.jpeg"
 							/>
 							<motion.img
 								initial={{ rotateY: -180, scale: 0.4 }}
@@ -78,7 +78,7 @@ const Home: NextPage = () => {
 									type: "spring",
 								}}
 								className="w-full top-0 shadow-lg shadow-transparent absolute blur-xl opacity-20 "
-								src="https://scontent.fbkk22-8.fna.fbcdn.net/v/t1.6435-9/131929586_2838394693063109_7824428835215953214_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeE9BKVherPYX12liT_xkmZS2qXpixYVJ0rapemLFhUnSl-F75UsgPJ2GWuaDfX1l5VcczFPGqvQpVV4GOih8REa&_nc_ohc=N1g2dS7gmlYAX9ZQ1I1&_nc_ht=scontent.fbkk22-8.fna&oh=00_AT-wGDzQXNwGe-QMu6UUUg_h7s3M2T-Yt900HwGOGr5Ksw&oe=6320C125"
+								src="/images/profile.jpeg"
 							/>
 						</div>
 					</motion.div>
