@@ -64,7 +64,7 @@ const Home: NextPage = () => {
 									type: "spring",
 								}}
 								className="w-full rounded-lg shadow-lg shadow-transparent"
-								src="/images/profile.jpeg"
+								src="https://www.piyaphat.com/images/profile.jpeg"
 							/>
 							<motion.img
 								initial={{ rotateY: -180, scale: 0.4 }}
