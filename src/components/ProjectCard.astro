@@ -31,7 +31,7 @@ const props = Astro.props
 		<slot/>
 	</CardContent>
 	<CardFooter className="space-x-2">
-		{props.techStack.map( stack => <Badge className="font-thin text-muted-foreground " variant="outline">{stack}</Badge>
+		{props.techStack.map( stack => <Badge className="font-thin text-nowrap text-muted-foreground " variant="outline">{stack}</Badge>
 		)}
 	</CardFooter>
   </Card>
