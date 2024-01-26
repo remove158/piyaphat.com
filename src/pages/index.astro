@@ -1,16 +1,15 @@
 ---
 // component imports
 import GlobalLayout from "@/layouts/Global.astro";
-import { Separator } from "@radix-ui/react-dropdown-menu";
 ---
 
 <GlobalLayout title="Home">
-	<section class="relative grid grid-cols-1 md:grid-cols-2 min-h-[calc(100vh-54px -64px)]">
-		<div class="my-24 md:my-auto px-2 text-center md:text-left">
+	<section class="relative grid grid-cols-1 md:grid-cols-2">
+		<div class="h-screen flex flex-col item-center justify-center text-center md:text-left -mt-24">
 			<p class="text-6xl text-bold text-wrap">Hi, I'm Plangton</p>
 			<p class="">Debugging IRL, dominating in-game.</p>
 		</div>
-		<div class="flex items-center justify-center">
+		<div class="h-screen flex items-center justify-center -mt-24">
 			<img class="object-cover" src="/images/hi.jpg" />
 		</div>
 	</section>
