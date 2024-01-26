@@ -1,11 +1,16 @@
 ---
 // component imports
 import MainLayout from "@/layouts/MainLayout.astro"
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
 ---
 
 
 <MainLayout>
-	<div class="h-screen container">
-		Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam officiis culpa architecto alias id ad sed similique unde ducimus, officia laborum error nulla nostrum tempore aspernatur assumenda distinctio blanditiis adipisci?
+	<div>
+		{posts.map(item => <a>{item.data.title}</a>)}
 	</div>
 </MainLayout>
