@@ -1,19 +1,54 @@
 ---
 // component imports
 import GlobalLayout from "@/layouts/Global.astro";
+import { Separator } from "@radix-ui/react-dropdown-menu";
 ---
 
 <GlobalLayout title="Home">
-		<div class="relative grid grid-cols-1 md:grid-cols-2 min-h-screen">
-			<div class="my-24 md:my-auto px-2 text-center md:text-left">
-				<p class="text-6xl text-bold text-wrap">Hi, I'm Plangton</p>
-				<p class="">Debugging IRL, dominating in-game.</p>
-			</div>
-			<div class="flex items-center justify-center" >
-				<img class="object-cover" src="/images/hi.jpg"/>
-			</div>
+	<section class="relative grid grid-cols-1 md:grid-cols-2 min-h-screen">
+		<div class="my-24 md:my-auto px-2 text-center md:text-left">
+			<p class="text-6xl text-bold text-wrap">Hi, I'm Plangton</p>
+			<p class="">Debugging IRL, dominating in-game.</p>
 		</div>
-		<!-- <div>
-			sdfasdf
-		</div> -->
+		<div class="flex items-center justify-center">
+			<img class="object-cover" src="/images/hi.jpg" />
+		</div>
+	</section>
+	<div class="border-b w-1/2 my-16 mx-auto"></div>
+	<section>
+		<p class="text-3xl text-bold text-wrap text-center">ABOUT ME</p>
+		<section class="">
+			<div class="group-date">
+				<h2 class="group-date-text">NOVEMBER 2021</h2>
+			</div>
+			<div class="timeline">
+				<div class="relative">
+					<div class="dot"></div>
+					<div class="pl-10">
+						<span class="timeline-date">13 November 2021</span>
+						<h3 class="text-gray-500">Event 1</h3>
+						<p class="text-gray-500">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim
+							neque veritatis eum vitae nihil ea amet quo, cupiditate repellat
+							omnis! Nemo non possimus ipsam pariatur. Itaque molestias incidunt
+							eligendi obcaecati?
+						</p>
+					</div>
+				</div>
+				<div class="relative">
+					<div class="dot"></div>
+					<div class="pl-10">
+						<span class="timeline-date">13 November 2021</span>
+						<h3 class="text-gray-500">Event 1</h3>
+						<p class="text-gray-500">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim
+							neque veritatis eum vitae nihil ea amet quo, cupiditate repellat
+							omnis! Nemo non possimus ipsam pariatur. Itaque molestias incidunt
+							eligendi obcaecati?
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</section>
 </GlobalLayout>

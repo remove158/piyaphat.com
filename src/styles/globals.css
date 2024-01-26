@@ -75,6 +75,27 @@
   }
 }
 
+@layer components {
+	.group-date {
+		@apply  sticky top-14 py-3 z-10 bg-background shadow-xl shadow-background
+	}
+	.group-date-text {
+		@apply  text-4xl text-gray-300 px-3 py-4 font-bold tracking-widest
+	}
+
+	.timeline {
+		@apply border-l-4 border-gray-200 ml-3 mt-3 py-8 space-y-14
+	}
+
+	.dot {
+		@apply absolute top-4 -left-3.5 bg-gray-200 h-6 w-6 rounded-full border-4 border-background
+	}
+
+	.timeline-date {
+		@apply text-xs font-bold opacity-40 tracking-widest
+	}
+}
+
 body {
 	font-family: 'Roboto';
 }
