@@ -1,0 +1,37 @@
+---
+import type { string } from 'astro/zod';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { ArrowUpRightFromSquare } from "lucide-react"
+import { Badge } from '@/components/ui/badge';
+interface Props {
+	title: string;
+	description: string;
+	createdAt: string;
+	techStack: string[];
+	url: string;
+	image?: string;
+}
+const props = Astro.props
+---
+
+<Card>
+	<CardHeader className=' relative'>
+		<CardDescription className="right-8 top-8 absolute">{props.createdAt}</CardDescription>
+	  <CardTitle> <a class="flex space-x-2 hover:text-foreground/80" target="_blank" href={props.url}><span>{props.title}</span> <ArrowUpRightFromSquare size={12}/></a></CardTitle>
+	  <CardDescription>{props.description}</CardDescription>
+	</CardHeader>
+	<CardContent>
+		<slot/>
+	</CardContent>
+	<CardFooter className="space-x-2">
+		{props.techStack.map( stack => <Badge className="font-thin text-muted-foreground " variant="outline">{stack}</Badge>
+		)}
+	</CardFooter>
+  </Card>

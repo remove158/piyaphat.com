@@ -1,32 +1,94 @@
 ---
 // component imports
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-
-import GlobalLayout from "@/layouts/Global.astro"
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import GlobalLayout from "@/layouts/Global.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import { ArrowUpRightFromSquare } from "lucide-react";
 ---
 
-
 <GlobalLayout>
-	<div>
-		<Card>
-			<CardHeader>
-			  <CardTitle>Card Title</CardTitle>
-			  <CardDescription>Card Description</CardDescription>
-			</CardHeader>
-			<CardContent>
-			  <p>Card Content</p>
-			</CardContent>
-			<CardFooter>
-			  <p>Card Footer</p>
-			</CardFooter>
-		  </Card>
-		  
+	<div class="grid space-y-8">
+		<ProjectCard
+			title="Share a Bill"
+			createdAt="May 2022"
+			description="เว็บไซต์สำหรับหารบิลกับเพื่อนแบบ realtime"
+			techStack={["Next.js (typescript)", "Firebase Firestore", "TailwindCSS"]}
+			url="https://bill.piyaphat.com"
+		>
+			<ul class="ml-8 list-disc">
+				<li>แชร์ให้เพื่อนช่วยแก้ไข/ดู</li>
+				<li>แก้ไขได้แบบเรียลไทม์</li>
+				<li>เพิ่ม/แก้ไข รายการอาหาร</li>
+				<li>คำนวณค่าใช้จ่ายแยกรายบุคคล</li>
+				<li>QR-Code Promptpay</li>
+				<li>
+					The source code is available on<!-- -->
+					<a
+						href="https://www.github.com/remove158/weshare"
+						target="_blank"
+						rel="noreferrer"
+						class="font-medium underline underline-offset-4">GitHub</a
+					>.
+				</li>
+			</ul>
+		</ProjectCard>
+		<ProjectCard
+			title="Chula SSO Mock"
+			createdAt="Dec 2022"
+			description="A standalone chula-sso-mock based on chula-sso"
+			techStack={["Golang", "Gin Web Framework"]}
+			url="https://www.github.com/remove158/chula-sso"
+		>
+			<ul class="ml-8 list-disc">
+				<li>
+					A standalone chula-sso-mock based on <a
+						href="https://account.it.chula.ac.th/wiki/doku.php"
+						target="_blank"
+						rel="noreferrer"
+						class="font-medium underline underline-offset-4">Chula SSO</a
+					>
+				</li>
+				<li>
+					The source code is available on <a
+						href="https://www.github.com/remove158/chula-sso"
+						target="_blank"
+						rel="noreferrer"
+						class="font-medium underline underline-offset-4">GitHub</a
+					>.
+				</li>
+			</ul>
+		</ProjectCard>
+		<ProjectCard
+			title="TOEIC Vocab"
+			createdAt="May 2023"
+			description="Website for practicing TOEIC vocabulary"
+			techStack={["Sveltekit (typescript)", "GraphQL (yoha)", "TailwindCSS"]}
+			url="https://toeic-vocab.piyaphat.com"
+		>
+			<ul class="ml-8 list-disc">
+				<li>
+					สุ่มคำถามจาก 3 หมวด 1) Meaning 2) PartOfSpeech 3) Synonyms
+				</li>
+				<li>
+					มีตัวอย่างประโยคให้ดู
+				</li>
+				<li>
+					The source code is available on <a
+						href="https://www.github.com/remove158/toeic"
+						target="_blank"
+						rel="noreferrer"
+						class="font-medium underline underline-offset-4">GitHub</a
+					>.
+				</li>
+			</ul>
+		</ProjectCard>
 	</div>
 </GlobalLayout>
