@@ -1,6 +1,8 @@
 ---
 import '@/styles/globals.css'
 import '@fontsource/roboto';
+import BaseHead from '@/components/BaseHead.astro'
+import { SITE_DESCRIPTION, SITE_TITLE } from '@/consts';
 import Header from '@/components/Header.astro'
 import Footer from '@/components/Footer.astro'
 ---
@@ -24,13 +26,7 @@ import Footer from '@/components/Footer.astro'
 </script>
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
+	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
 	<body>
 		<Header/>
 		<div class="container">

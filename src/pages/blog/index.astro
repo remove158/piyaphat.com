@@ -1,6 +1,6 @@
 ---
 // component imports
-import MainLayout from "@/layouts/MainLayout.astro"
+import GlobalLayout from "@/layouts/Global.astro"
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog')).sort(
@@ -9,8 +9,8 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 
-<MainLayout>
+<GlobalLayout>
 	<div>
 		{posts.map(item => <a>{item.data.title}</a>)}
 	</div>
-</MainLayout>
+</GlobalLayout>

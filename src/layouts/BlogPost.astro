@@ -1,5 +1,5 @@
 ---
-import MainLayout from '@/layouts/MainLayout.astro'
+import GLobalLayout from '@/layouts/Global.astro'
 import type { CollectionEntry } from 'astro:content';
 
 type Props = CollectionEntry<'blog'>['data'];
@@ -7,7 +7,8 @@ type Props = CollectionEntry<'blog'>['data'];
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<MainLayout>
+<GLobalLayout>
 	{title}
-<slot/>
-</MainLayout>
+	{description}
+	<slot/>
+</GLobalLayout>

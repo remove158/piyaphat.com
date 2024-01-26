@@ -5,7 +5,8 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(),     tailwind({
-	applyBaseStyles: false,
-  })]
+	site: 'https://www.piyaphat.com',
+	integrations: [react(), tailwind({
+		applyBaseStyles: false,
+	})]
 });
