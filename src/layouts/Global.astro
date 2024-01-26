@@ -29,10 +29,10 @@ import Footer from '@/components/Footer.astro'
 	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
 	<body>
 		<Header/>
-		<div class="container">
-			<slot>
-				Not found
-			</slot>
+		<div class=" py-8 border-b">
+			<div class="container min-h-screen">
+				<slot/>
+			</div>
 		</div>
 		<Footer/>
 	</body>

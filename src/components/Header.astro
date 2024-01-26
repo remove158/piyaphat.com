@@ -2,11 +2,11 @@
 import { ModeToggle } from '@/components/ThemeButton';
 import { GITHUB_LINK, SITE_TITLE } from '@/consts';
 const { pathname } = Astro.url;
-const LINKS = [{name: "About" , link : "/about"},{name: "Blog" , link : "/blog"}]
+const LINKS = [{name: "Projects" , link : "/projects"},{name: "Blog" , link : "/blog"}]
 ---
 <header class="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
 	<div class="container mx-auto flex h-14 max-w-screen-2xl items-center">
-		<a href="/" class="hidden font-bold sm:inline-block mr-6">{SITE_TITLE}</a>
+		<a href="/" class="font-bold inline-block mr-6">{SITE_TITLE}</a>
 		<nav class="flex items-center gap-6 text-sm">
 			{LINKS.map((item) => <a class={`transition-colors capitalize hover:text-foreground/80 text-foreground ${pathname.startsWith(item.link) ? "text-foreground":"text-foreground/60"}`} href={item.link}>{item.name}</a>)}
 		</nav>
