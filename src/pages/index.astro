@@ -1,11 +1,19 @@
 ---
 // component imports
-import GlobalLayout from "@/layouts/Global.astro"
+import GlobalLayout from "@/layouts/Global.astro";
 ---
 
-
-<GlobalLayout>
-	<div>
-		asdfasdf
-	</div>
+<GlobalLayout title="Home">
+		<div class="relative grid grid-cols-1 md:grid-cols-2 min-h-screen">
+			<div class="my-24 md:my-auto px-2 text-center md:text-left">
+				<p class="text-6xl text-bold text-wrap">Hi, I'm Plangton</p>
+				<p class="">Debugging IRL, dominating in-game.</p>
+			</div>
+			<div class="flex items-center justify-center" >
+				<img class="object-cover" src="/images/hi.jpg"/>
+			</div>
+		</div>
+		<!-- <div>
+			sdfasdf
+		</div> -->
 </GlobalLayout>

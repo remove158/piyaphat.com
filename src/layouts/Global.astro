@@ -5,7 +5,14 @@ import BaseHead from '@/components/BaseHead.astro'
 import { SITE_DESCRIPTION, SITE_TITLE } from '@/consts';
 import Header from '@/components/Header.astro'
 import Footer from '@/components/Footer.astro'
+
+interface Props {
+	title ?: string;
+	description ?: string;
+}
+const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props
 ---
+
 <script is:inline>
 	const getThemePreference = () => {
 		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
@@ -26,7 +33,7 @@ import Footer from '@/components/Footer.astro'
 </script>
 
 <html lang="en">
-	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
+	<BaseHead title={title} description={description}/>
 	<body>
 		<Header/>
 		<div class=" py-8 border-b">

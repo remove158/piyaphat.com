@@ -11,6 +11,7 @@ const posts = (await getCollection('blog')).sort(
 
 <GlobalLayout>
 	<div>
-		{posts.map(post => <a href={`/blog/${post.slug}`}>{post.data.title}</a>)}
+		No content
+		<!-- {posts.map(post => <a href={`/blog/${post.slug}`}>{post.data.title}</a>)} -->
 	</div>
 </GlobalLayout>
