@@ -13,10 +13,16 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
-const { Content } = await post.render();
+const { Content, headings } = await post.render();
 ---
 
 <BlogPost {...post.data} >
+	---
+	<div class="fixed right-0">
+		<ul>
+			{headings.map(e => <li ><a href={`#${e.slug}`}>{e.text}</a></li>)}
+		</ul>
+	</div>
 	<Content />
 	<!-- {JSON.stringify(post.data.author.id)} -->
 </BlogPost>
