@@ -2,12 +2,6 @@
 // component imports
 import BlogCard from "@/components/BlogCard.astro";
 import { Button } from "@/components/ui/button";
-import {
-	Card,
-	CardDescription,
-	CardHeader,
-	CardTitle,
-} from "@/components/ui/card";
 import GlobalLayout from "@/layouts/Global.astro";
 import { getCollection } from "astro:content";
 
@@ -63,11 +57,24 @@ const categories = await getCollection("categories");
 				class="shrink-0 bg-border h-[1px] w-full my-4"
 			>
 			</div>
-			<div class="grid grid-cols-2 gap-4">
+			<div class="grid grid-cols-6 gap-4">
 				{
 					categories.map((cate) => (
-						<a href={`/categories/${cate.id}`}>
-							<Button variant="outline" className="w-full py-16 text-5xl text-muted-foreground">{cate.data.name}</Button>
+						<a class="space-y-3" href={`/categories/${cate.id}`}>
+							<div class="overflow-hidden rounded-md">
+								<img
+									loading="lazy"
+									width="150"
+									height="150"
+									src={cate.data.hero}
+									class=" h-auto w-auto object-cover transition-all hover:scale-105 aspect-square"
+									alt={cate.data.name}
+								/>
+							</div>
+							<div class="space-y-1 text-sm">
+									<h3 class="font-medium leading-none">{cate.data.name}</h3>
+									<p class="text-xs text-muted-foreground">Category</p>
+							</div>
 						</a>
 					))
 				}

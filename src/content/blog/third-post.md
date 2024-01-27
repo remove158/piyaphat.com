@@ -1,10 +1,10 @@
 ---
-title: 'Third post'
+title: 'The thrid post'
 author: 'piyaphat' 
-description: 'This post is about backend only'
+description: 'This post is about backend'
 pubDate: 'Jul 03 2022'
-heroImage: '/images/hi.jpg'
+heroImage: '/images/me.jpg'
 categories: ['backend']
 ---
 
-Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.
+## asdfasdfasdfasdf asdfasdfasdf

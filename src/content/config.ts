@@ -26,6 +26,7 @@ const categories  = defineCollection({
 	type: 'data',
 	schema: z.object({
 		name: z.string(),
+		hero: z.string().default("/images/no_image.jpg"),
 	}),
 });
 

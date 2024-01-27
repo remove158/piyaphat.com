@@ -23,7 +23,7 @@ const posts = await getCollection("blog", (post) =>
 );
 ---
 
-<GlobalLayout>
+<GlobalLayout image={props.data.hero}>
 	<div class="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
 		<a href="/blog">
 			<div class="overflow-hidden text-ellipsis whitespace-nowrap">
