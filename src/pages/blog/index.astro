@@ -65,13 +65,13 @@ const categories = await getCollection("categories");
 									loading="lazy"
 									width="150"
 									height="150"
-									src={cate.data.hero}
+									src={cate.data.image}
 									class=" h-auto w-auto object-cover transition-all hover:scale-105 aspect-square"
-									alt={cate.data.name}
+									alt={cate.data.title}
 								/>
 							</div>
 							<div class="space-y-1 text-sm">
-									<h3 class="font-medium leading-none">{cate.data.name}</h3>
+									<h3 class="font-medium leading-none">{cate.data.title}</h3>
 									<p class="text-xs text-muted-foreground">Category</p>
 							</div>
 						</a>

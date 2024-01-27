@@ -1,4 +1,4 @@
 {
-	"name": "Backend",
-	"hero" : "/images/backend.png"
+	"title": "Backend",
+	"image" : "/images/backend.png"
 }

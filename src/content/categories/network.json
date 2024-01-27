@@ -1,4 +1,4 @@
 {
-	"name": "Network",
-	"hero" : "/images/network.jpg"
+	"title": "Network",
+	"image" : "/images/network.jpg"
 }

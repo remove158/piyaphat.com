@@ -17,16 +17,16 @@ const blog = defineCollection({
 const authors  = defineCollection({
 	type: 'data',
 	schema: z.object({
-		name: z.string(),
-		git: z.string().url()
+		title: z.string(),
+		description: z.string().url()
 	}),
 });
 
 const categories  = defineCollection({
 	type: 'data',
 	schema: z.object({
-		name: z.string(),
-		hero: z.string().default("/images/no_image.jpg"),
+		title: z.string(),
+		image: z.string().default("/images/no_image.jpg"),
 	}),
 });
 
