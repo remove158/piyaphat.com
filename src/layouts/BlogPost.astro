@@ -1,12 +1,16 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import { getEntry, type CollectionEntry } from 'astro:content';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, author } = Astro.props;
 import GlobalLayout from '@/layouts/Global.astro'
+
+const author_data = await getEntry("authors", author.id )
 ---
 
-<GlobalLayout title={title} description={description}>
+<GlobalLayout title={title} description={description} image={heroImage}>
+	<a href={author_data.data.git} target="_blank">{author_data.data.name}</a>
 	{title}
+	<slot/>
 </GlobalLayout>
