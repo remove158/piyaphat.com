@@ -22,7 +22,7 @@ const props = Astro.props
 ---
 
 <Card>
-	<CardHeader className=' relative'>
+	<CardHeader className='relative'>
 		<CardDescription className="right-8 top-8 absolute">{props.createdAt}</CardDescription>
 	  <CardTitle> <a class="flex space-x-2 hover:text-foreground/80" target="_blank" href={props.url}><span>{props.title}</span> <ArrowUpRightFromSquare size={12}/></a></CardTitle>
 	  <CardDescription>{props.description}</CardDescription>
