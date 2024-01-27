@@ -9,7 +9,7 @@ const blog = defineCollection({
 	description: z.string(),
 	author: reference('authors'),
 	pubDate: z.coerce.date(),
-	categories: z.array(z.string()),
+	categories: z.array(reference('categories')),
 	heroImage: z.string().optional(),
 }),
 });
@@ -22,5 +22,13 @@ const authors  = defineCollection({
 	}),
 });
 
+const categories  = defineCollection({
+	type: 'data',
+	schema: z.object({
+		name: z.string(),
+	}),
+});
+
+
 // 3. Export a single `collections` object to register your collection(s)
-export const collections = {  blog, authors };
+export const collections = {  blog, authors, categories};

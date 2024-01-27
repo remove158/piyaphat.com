@@ -1,7 +1,6 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
+import { type CollectionEntry, getCollection, getEntries, getEntry } from 'astro:content';
 import BlogPost from '@/layouts/BlogPost.astro';
-import { getEntry } from 'astro:content';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -14,15 +13,15 @@ type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
 const { Content, headings } = await post.render();
+const categories = await getEntries(post.data.categories);
+const author = await getEntry('authors', post.data.author.id)
 ---
 
 <BlogPost {...post.data} >
 	---
-	<!-- <div class="fixed right-0">
-		<ul>
-			{headings.map(e => <li ><a href={`#${e.slug}`}>{e.text}</a></li>)}
-		</ul>
-	</div> -->
+	{author.data.name}
+	<img src={post.data.heroImage} alt={post.data.title} />
+	{categories.map( cate => <li>{cate.data.name} #{cate.id}</li>)}
 	<Content />
 	<!-- {JSON.stringify(post.data.author.id)} -->
 </BlogPost>

@@ -12,7 +12,5 @@ const author_data = await getEntry("authors", author.id);
 
 
 <GlobalLayout title={title} description={description} image={heroImage}>
-	<a href={author_data.data.git} target="_blank">{author_data.data.name}</a>
-	{title}
 	<slot />
 </GlobalLayout>

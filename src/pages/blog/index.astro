@@ -26,7 +26,6 @@ const posts = (await getCollection("blog")).sort(
 				<BlogCard
 					title={post.data.title}
 					description={post.data.description}
-					categories={post.data.categories}
 					slug={post.slug}
 					heroImage={post.data.heroImage}
 				/>
