@@ -1,18 +1,37 @@
 ---
 // component imports
-import GlobalLayout from "@/layouts/Global.astro"
-import { getCollection } from 'astro:content';
+import BlogCard from "@/components/BlogCard.astro";
+import GlobalLayout from "@/layouts/Global.astro";
+import { getCollection } from "astro:content";
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+const posts = (await getCollection("blog")).sort(
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
 );
 ---
 
-
 <GlobalLayout>
-	<div class="text-foreground/60">
-		No content
-		<!-- {posts.map(post => <a href={`/blog/${post.slug}`}>{post.data.title}</a>)} -->
+	<div class="flex items-center justify-between">
+		<div class="space-y-1">
+			<h2 class="text-2xl font-semibold tracking-tight">Fresh picks</h2><p
+				class="text-sm text-muted-foreground"
+			>
+			Explore the latest and greatest blogs.
+			</p>
+		</div>
 	</div>
-	
+	<div data-orientation="horizontal" role="none" class="shrink-0 bg-border h-[1px] w-full my-4"></div>
+	<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+		{
+			posts.map((post) => (
+				<BlogCard
+					title={post.data.title}
+					description={post.data.description}
+					categories={post.data.categories}
+					slug={post.slug}
+					heroImage={post.data.heroImage}
+				/>
+					
+			))
+		}
+	</div>
 </GlobalLayout>

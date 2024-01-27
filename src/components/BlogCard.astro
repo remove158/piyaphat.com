@@ -1,0 +1,32 @@
+---
+import { Badge } from '@/components/ui/badge';
+interface Props {
+	title: string;
+	description: string;
+	categories: string[];
+	slug: string
+	heroImage ?: string
+
+}
+const props = Astro.props
+const {heroImage = "/images/hi.jpg"} = props
+---
+
+<a href={`/blog/${props.slug}`}>
+	<div class="flex space-y-3 flex-col h-full">
+		<div class="overflow-hidden rounded-md">
+			<img class="h-auto w-auto object-cover transition-all hover:scale-105 aspect-[3/4]" loading="lazy" width="250" height="330"  src={heroImage} alt={props.title} />
+		</div>
+		<div class="space-y-1 flex flex-col">
+			<h3 class="font-medium leading-none">
+				{props.title}
+			</h3>
+			<p class="text-xs text-muted-foreground">
+				{props.description}
+			</p>
+		</div>
+		<!-- <div class="flex items-center space-x-1 text-xs text-muted-foreground">
+			{props.categories.map( cate => <Badge variant="outline" className="text-xs text-muted-foreground">{cate}</Badge>)}
+		</div> -->
+	</div>
+</a>

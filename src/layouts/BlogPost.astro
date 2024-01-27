@@ -3,24 +3,13 @@ import { getEntry, type CollectionEntry } from "astro:content";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage, author } =
+const { title, description, pubDate, heroImage, author } =
 	Astro.props;
 import GlobalLayout from "@/layouts/Global.astro";
 
 const author_data = await getEntry("authors", author.id);
 ---
-<style>
-	:global(html) {
-	  color: hsl(var(--colour-text-hue) var(--colour-text-saturation) var(--colour-text-luminance));
-  
-		  scroll-behavior: smooth;
-	}
-	@media (prefers-reduced-motion: reduce) {
-	  :global(html) {
-		scroll-behavior: auto;
-	  }
-	}
-</style>
+
 
 <GlobalLayout title={title} description={description} image={heroImage}>
 	<a href={author_data.data.git} target="_blank">{author_data.data.name}</a>
