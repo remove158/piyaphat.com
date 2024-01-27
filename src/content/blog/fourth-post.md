@@ -1,8 +1,8 @@
 ---
-title: '4'
+title: 'Fourth Post'
 author: 'piyaphat' 
-description: 'Lorem ipsum dolor sit amet'
-pubDate: 'Jul 08 2022'
+description: 'This post is about backend and frontend'
+pubDate: 'Jul 04 2022'
 heroImage: '/images/hi.jpg'
 categories: ['backend', 'frontend']
 ---

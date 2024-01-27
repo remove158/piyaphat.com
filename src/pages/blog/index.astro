@@ -1,36 +1,77 @@
 ---
 // component imports
 import BlogCard from "@/components/BlogCard.astro";
+import { Button } from "@/components/ui/button";
+import {
+	Card,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from "@/components/ui/card";
 import GlobalLayout from "@/layouts/Global.astro";
 import { getCollection } from "astro:content";
 
-const posts = (await getCollection("blog")).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
-);
+const posts = (await getCollection("blog"))
+	.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+	.slice(0, 4);
+
+const categories = await getCollection("categories");
 ---
 
 <GlobalLayout>
-	<div class="flex items-center justify-between">
-		<div class="space-y-1">
-			<h2 class="text-2xl font-semibold tracking-tight">Fresh picks</h2><p
-				class="text-sm text-muted-foreground"
+	<div class="flex flex-col space-y-16">
+		<section class="">
+			<div class="flex items-center justify-between">
+				<div class="space-y-1">
+					<h2 class="text-2xl font-semibold tracking-tight">Fresh picks</h2><p
+						class="text-sm text-muted-foreground"
+					>
+						Explore the latest and greatest blogs.
+					</p>
+				</div>
+			</div>
+			<div
+				data-orientation="horizontal"
+				role="none"
+				class="shrink-0 bg-border h-[1px] w-full my-4"
 			>
-			Explore the latest and greatest blogs.
-			</p>
-		</div>
-	</div>
-	<div data-orientation="horizontal" role="none" class="shrink-0 bg-border h-[1px] w-full my-4"></div>
-	<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-		{
-			posts.map((post) => (
-				<BlogCard
-					title={post.data.title}
-					description={post.data.description}
-					slug={post.slug}
-					heroImage={post.data.heroImage}
-				/>
-					
-			))
-		}
+			</div>
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+				{
+					posts.map((post) => (
+						<BlogCard
+							title={post.data.title}
+							description={post.data.description}
+							slug={post.slug}
+							heroImage={post.data.heroImage}
+						/>
+					))
+				}
+			</div>
+		</section>
+		<section class="">
+			<div class="flex items-center justify-between">
+				<div class="space-y-1">
+					<h2 class="text-2xl font-semibold tracking-tight">
+						Categories picks
+					</h2><p class="text-sm text-muted-foreground">Explore categories</p>
+				</div>
+			</div>
+			<div
+				data-orientation="horizontal"
+				role="none"
+				class="shrink-0 bg-border h-[1px] w-full my-4"
+			>
+			</div>
+			<div class="grid grid-cols-2 gap-4">
+				{
+					categories.map((cate) => (
+						<a href={`/categories/${cate.id}`}>
+							<Button variant="outline" className="w-full py-16 text-5xl text-muted-foreground">{cate.data.name}</Button>
+						</a>
+					))
+				}
+			</div>
+		</section>
 	</div>
 </GlobalLayout>

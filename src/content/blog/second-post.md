@@ -1,8 +1,8 @@
 ---
-title: '2'
+title: 'The second post'
 author: 'piyaphat' 
-description: 'Lorem ipsum dolor sit amet'
-pubDate: 'Jul 08 2022'
+description: 'This post is about frontend only'
+pubDate: 'Jul 02 2022'
 heroImage: '/images/hi.jpg'
 categories: ['frontend']
 ---
