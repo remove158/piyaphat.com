@@ -7,6 +7,28 @@ import GlobalLayout from "@/layouts/Global.astro";
 <GlobalLayout title="Projects" description="ผลงานที่เคยทำ">
 	<div class="grid space-y-6">
 		<ProjectCard
+		title="Personal Blog"
+		createdAt="January 2024"
+		description="My personal website"
+		techStack={["Astro (typescript)", "Shadcn/UI"]}
+		url="https://www.piyaphat.com"
+	>
+		<ul class="ml-8 list-disc">
+			<li>About me as timeline</li>
+			<li>Project showcase</li>
+			<li>Web blog</li>
+			<li>
+				The source code is available on<!-- -->
+				<a
+					href="https://www.github.com/remove158/piyaphat.com"
+					target="_blank"
+					rel="noreferrer"
+					class="font-medium underline underline-offset-4">GitHub</a
+				>.
+			</li>
+		</ul>
+	</ProjectCard>
+		<ProjectCard
 			title="Share a Bill"
 			createdAt="May 2022"
 			description="เว็บไซต์สำหรับหารบิลกับเพื่อนแบบ realtime"
