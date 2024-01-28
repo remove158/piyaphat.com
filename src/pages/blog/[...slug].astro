@@ -4,7 +4,7 @@ import { ArrowUpRightFromSquare } from "lucide-react"
 import { getCollection, type CollectionEntry, getEntries, getEntry } from "astro:content";
 import dayjs from 'dayjs';
 import "dayjs/locale/th";
-import relativeTime from 'dayjs/plugin/relativeTime'
+import LocalizedFormat from 'dayjs/plugin/localizedFormat'
 
 export async function getStaticPaths() {
 	const posts = await getCollection("blog");
@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 	}));
 }
 type Props = CollectionEntry<"blog">;
-dayjs.extend(relativeTime)
+dayjs.extend(LocalizedFormat)
 dayjs.locale('th')
 const post = Astro.props;
 const categories = await getEntries(post.data.categories);
@@ -45,7 +45,7 @@ const { Content } = await post.render();
 			</a>
 		</div>
 		<span class="ml-auto text-balance text-sm leading-loose text-muted-foreground ">
-					โดย <a class="underline" href={author.data.link}>ปิยะพัทธ์ ภิญโญ</a> เมื่อ {dayjs(post.data.pubDate).fromNow()}
+					โดย <a class="underline" href={author.data.link}>ปิยะพัทธ์ ภิญโญ</a> เมื่อ {dayjs(post.data.pubDate).format("LL")}
 		</span>
 	</div>
 	</div>

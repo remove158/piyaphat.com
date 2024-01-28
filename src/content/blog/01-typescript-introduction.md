@@ -7,4 +7,4 @@ heroImage: '/images/typescript.png'
 categories: ['typescript']
 ---
 
-## asdfasdf
+## What is TypeScript
