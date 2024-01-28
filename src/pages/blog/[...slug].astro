@@ -1,20 +1,15 @@
 ---
 import BlogPost from "@/layouts/BlogPost.astro";
 import {
-	ArrowUpRightFromSquare,
-	ChevronLeft,
-	ChevronRight,
-} from "lucide-react";
-import {
 	getCollection,
-	type CollectionEntry,
 	getEntries,
 	getEntry,
+	type CollectionEntry,
 } from "astro:content";
 import dayjs from "dayjs";
 import "dayjs/locale/th";
 import LocalizedFormat from "dayjs/plugin/localizedFormat";
-import { Button } from "@/components/ui/button";
+import { ArrowUpRightFromSquare, ChevronRight } from "lucide-react";
 
 export async function getStaticPaths() {
 	const posts = await getCollection("blog");
@@ -33,104 +28,116 @@ const { Content } = await post.render();
 ---
 
 <BlogPost {...post.data}>
-	<div class="mb-4">
-		<div
-			class="flex h-full items-center space-x-1 text-sm text-muted-foreground"
-		>
-			<a href="/blog">
-				<div class="overflow-hidden text-ellipsis whitespace-nowrap">Blog</div>
-			</a>
-			<ChevronRight width={15} height={15} /><a href={`/blog/${post.slug}`}>
-				<div class="font-medium text-foreground">{post.data.title}</div>
-			</a>
-		</div>
-		<span
-			class="ml-auto text-balance text-sm leading-loose text-muted-foreground"
-		>
-			โดย <a class="underline" href={author.data.link}>ปิยะพัทธ์ ภิญโญ</a> เมื่อ
-			{dayjs(post.data.pubDate).format("LL")}
-		</span>
-	</div>
-	<div class="flex flex-col">
-		<div class="space-y-1">
-			<h1 class="text-3xl font-bold tracking-tight">
-				{post.data.title}
-			</h1>
-			<p class="text-lg text-muted-foreground">
-				{post.data.description}
-			</p>
-		</div>
-		<div class="my-2">
-			{
-				categories.map((cate) => (
-					<a
-						target="_blank"
-						rel="noreferrer"
-						class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 gap-1 hover:text-secondary-foreground/80"
-						href={`/categories/${cate.id}`}
-					>
-						{cate.data.title}
-						<ArrowUpRightFromSquare size="12" />
+	<div class="grid grid-cols-4 md:grid-cols-6">
+		<div class="hidden md:block">List</div>
+		<div class="col-span-4">
+			<div class="mb-4">
+				<div
+					class="flex h-full items-center space-x-1 text-sm text-muted-foreground"
+				>
+					<a href="/blog">
+						<div class="overflow-hidden text-ellipsis whitespace-nowrap">
+							Blog
+						</div>
 					</a>
-				))
-			}
-		</div>
-	</div>
-	<div
-		class="prose py-8 prose-img:rounded-xl prose-h1:border-b prose-h2:border-b dark:prose-invert lg:prose-xl"
-	>
-		<Content />
-		<div class="flex flex-row items-center justify-between">
-			{
-				post.data.prev && (
-					<a
-						class="inline-flex no-underline items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
-						href={`/blog/${post.data.prev.slug}`}
-					>
-						<svg
-							width="15"
-							height="15"
-							viewBox="0 0 15 15"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-							class="mr-2 h-4 w-4"
-						>
-							<path
-								d="M8.84182 3.13514C9.04327 3.32401 9.05348 3.64042 8.86462 3.84188L5.43521 7.49991L8.86462 11.1579C9.05348 11.3594 9.04327 11.6758 8.84182 11.8647C8.64036 12.0535 8.32394 12.0433 8.13508 11.8419L4.38508 7.84188C4.20477 7.64955 4.20477 7.35027 4.38508 7.15794L8.13508 3.15794C8.32394 2.95648 8.64036 2.94628 8.84182 3.13514Z"
-								fill="currentColor"
-								fill-rule="evenodd"
-								clip-rule="evenodd"
-							/>
-						</svg>
-						Prev
+					<ChevronRight width={15} height={15} /><a href={`/blog/${post.slug}`}>
+						<div class="font-medium text-foreground">{post.data.title}</div>
 					</a>
-				)
-			}
-			{
-				post.data.next && (
-					<a
-						class="inline-flex no-underline items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 ml-auto"
-						href={`/blog/${post.data.next.slug}`}
-					>
-					Next
-						<svg
-							width="15"
-							height="15"
-							viewBox="0 0 15 15"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-							class="ml-2 h-4 w-4"
-						>
-							<path
-								d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z"
-								fill="currentColor"
-								fill-rule="evenodd"
-								clip-rule="evenodd"
-							/>
-						</svg>
-					</a>
-				)
-			}
+				</div>
+				<span
+					class="ml-auto text-balance text-sm leading-loose text-muted-foreground"
+				>
+					โดย <a class="underline" href={author.data.link}>ปิยะพัทธ์ ภิญโญ</a> เมื่อ
+					{dayjs(post.data.pubDate).format("LL")}
+				</span>
+			</div>
+			<div class="flex flex-col">
+				<div class="space-y-1">
+					<h1 class="text-2xl font-bold tracking-tight">
+						{post.data.title}
+					</h1>
+					<p class="text-md text-muted-foreground">
+						{post.data.description}
+					</p>
+				</div>
+			</div>
+
+			<div
+				class="prose col-span-4 py-2 md:py-8 prose-img:rounded-xl prose-h1:border-b prose-h2:border-b dark:prose-invert lg:prose-xl"
+			>
+				<Content />
+
+				<div class="flex flex-row items-center justify-between">
+					{
+						post.data.prev && (
+							<a
+								class="inline-flex no-underline items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
+								href={`/blog/${post.data.prev.slug}`}
+							>
+								<svg
+									width="15"
+									height="15"
+									viewBox="0 0 15 15"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+									class="mr-2 h-4 w-4"
+								>
+									<path
+										d="M8.84182 3.13514C9.04327 3.32401 9.05348 3.64042 8.86462 3.84188L5.43521 7.49991L8.86462 11.1579C9.05348 11.3594 9.04327 11.6758 8.84182 11.8647C8.64036 12.0535 8.32394 12.0433 8.13508 11.8419L4.38508 7.84188C4.20477 7.64955 4.20477 7.35027 4.38508 7.15794L8.13508 3.15794C8.32394 2.95648 8.64036 2.94628 8.84182 3.13514Z"
+										fill="currentColor"
+										fill-rule="evenodd"
+										clip-rule="evenodd"
+									/>
+								</svg>
+								Prev
+							</a>
+						)
+					}
+					{
+						post.data.next && (
+							<a
+								class="inline-flex no-underline items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 ml-auto"
+								href={`/blog/${post.data.next.slug}`}
+							>
+								Next
+								<svg
+									width="15"
+									height="15"
+									viewBox="0 0 15 15"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+									class="ml-2 h-4 w-4"
+								>
+									<path
+										d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z"
+										fill="currentColor"
+										fill-rule="evenodd"
+										clip-rule="evenodd"
+									/>
+								</svg>
+							</a>
+						)
+					}
+				</div>
+				<div class="border-t mt-8">
+					<p class="text-md text-muted-foreground">หมวดหมูที่เกี่ยวข้อง</p>
+					<div class="space-x-2">
+						{
+							categories.map((cate) => (
+								<a
+									rel="noreferrer"
+									class="inline-flex  no-underline items-center rounded-md border  px-2.5 py-0.5 text-[0.5em] font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 gap-1 hover:text-secondary-foreground/80"
+									href={`/categories/${cate.id}`}
+								>
+									{cate.data.title}
+									<ArrowUpRightFromSquare size="8" />
+								</a>
+							))
+						}
+					</div>
+				</div>
+			</div>
 		</div>
+		<div class="hidden md:block">On this page</div>
 	</div>
 </BlogPost>
