@@ -22,14 +22,15 @@ type Props = CollectionEntry<"blog">;
 dayjs.extend(LocalizedFormat);
 dayjs.locale("th");
 const post = Astro.props;
+
 const categories = await getEntries(post.data.categories);
 const author = await getEntry(post.data.author);
-const { Content } = await post.render();
+const { Content, headings } = await post.render();
 ---
 
 <BlogPost {...post.data}>
 	<div class="grid grid-cols-4 md:grid-cols-6">
-		<div class="hidden md:block">List</div>
+		<div class="hidden md:block">ASIDE</div>
 		<div class="col-span-4">
 			<div class="mb-4">
 				<div
@@ -47,7 +48,7 @@ const { Content } = await post.render();
 				<span
 					class="ml-auto text-balance text-sm leading-loose text-muted-foreground"
 				>
-					โดย <a class="underline" href={author.data.link}>ปิยะพัทธ์ ภิญโญ</a> เมื่อ
+					โดย <a class="underline" href={author.data.link}>{author.data.title}</a> เมื่อ
 					{dayjs(post.data.pubDate).format("LL")}
 				</span>
 			</div>
@@ -63,7 +64,7 @@ const { Content } = await post.render();
 			</div>
 
 			<div
-				class="prose col-span-4 py-2 md:py-8 prose-img:rounded-xl prose-h1:border-b prose-h2:border-b dark:prose-invert lg:prose-xl"
+				class="prose prose-h2:text-2xl prose-h3:text-xl prose-h2:pb-2 prose-p:text-base col-span-4 py-2 md:py-8 prose-img:rounded-xl prose-h1:border-b prose-h2:border-b dark:prose-invert lg:prose-xl"
 			>
 				<Content />
 
@@ -120,7 +121,7 @@ const { Content } = await post.render();
 					}
 				</div>
 				<div class="border-t mt-8">
-					<p class="text-md text-muted-foreground">หมวดหมูที่เกี่ยวข้อง</p>
+					<p class="text-md text-muted-foreground">หมวดหมู่ที่เกี่ยวข้อง</p>
 					<div class="space-x-2">
 						{
 							categories.map((cate) => (
@@ -138,6 +139,17 @@ const { Content } = await post.render();
 				</div>
 			</div>
 		</div>
-		<div class="hidden md:block">On this page</div>
+		<div class="hidden md:block font-medium space-y-2">
+			On this page
+			<ul>
+				{
+					headings.map((id) => (
+						<li class="mt-0 pt-2">
+							<a class={`inline-block no-underline transition-colors hover:text-foreground text-muted-foreground pl-${id.depth}`} href={`#${id.slug}`} >{id.text}</a>
+						</li>
+					))
+				}
+			</ul>
+		</div>
 	</div>
 </BlogPost>
