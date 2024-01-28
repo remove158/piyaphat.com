@@ -8,6 +8,8 @@ const blog = defineCollection({
 	title: z.string(),
 	description: z.string(),
 	author: reference('authors'),
+	next: z.optional(reference('blog')),
+	prev: z.optional(reference('blog')),
 	pubDate: z.coerce.date(),
 	categories: z.array(reference('categories')),
 	heroImage: z.string().optional(),
