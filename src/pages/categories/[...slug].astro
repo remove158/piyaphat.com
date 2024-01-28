@@ -1,13 +1,11 @@
 ---
 import {
-	type CollectionEntry,
-	getCollection,
-	getEntries,
-	getEntry,
+getCollection,
+type CollectionEntry
 } from "astro:content";
 
-import GlobalLayout from "@/layouts/Global.astro";
 import BlogCard from "@/components/BlogCard.astro";
+import GlobalLayout from "@/layouts/Global.astro";
 export async function getStaticPaths() {
 	const categories = await getCollection("categories");
 	return categories.map((category) => ({

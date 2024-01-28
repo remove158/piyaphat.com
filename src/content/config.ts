@@ -18,7 +18,7 @@ const authors  = defineCollection({
 	type: 'data',
 	schema: z.object({
 		title: z.string(),
-		description: z.string().url()
+		link: z.string().url()
 	}),
 });
 
