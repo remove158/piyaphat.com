@@ -30,7 +30,7 @@ const { Content, headings } = await post.render();
 
 <BlogPost {...post.data}>
 	<div class="grid grid-cols-4 md:grid-cols-6">
-		<div class="hidden md:block">ASIDE</div>
+		<div class="hidden md:block sticky h-fit top-20">ASIDE</div>
 		<div class="col-span-4">
 			<div class="mb-4">
 				<div
@@ -139,7 +139,7 @@ const { Content, headings } = await post.render();
 				</div>
 			</div>
 		</div>
-		<div class="hidden md:block font-medium space-y-2">
+		<div class="hidden md:block font-medium space-y-2  sticky h-fit top-20">
 			On this page
 			<ul>
 				{
