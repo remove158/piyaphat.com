@@ -17,9 +17,9 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"categories">;
 
 const props = Astro.props;
-const posts = await getCollection("blog", (post) =>
+const posts = (await getCollection("blog", (post) =>
 	post.data.categories.map((cate) => cate.id).includes(props.id),
-);
+)).sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
 ---
 
 <GlobalLayout title={props.data.title} description={`Explore the latest and greatest ${props.data.title} blogs.`} image={props.data.image}>

@@ -24,14 +24,42 @@ dayjs.locale("th");
 const post = Astro.props;
 
 const categories = await getEntries(post.data.categories);
+const { pathname } = Astro.url;
+const relatedPosts = (
+	await getCollection("blog", (post) =>
+		post.data.categories.map((cate) => cate.id).includes(categories[0].id),
+	)
+).sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
 const author = await getEntry(post.data.author);
 const { Content, headings } = await post.render();
 ---
 
 <BlogPost {...post.data}>
 	<div class="grid grid-cols-4 md:grid-cols-6">
-		<div class="hidden md:block sticky h-fit top-20">ASIDE</div>
-		<div class="col-span-4">
+		<div class="hidden md:block font-medium space-y-2 sticky h-fit top-20">
+			<p class="font-semibold">Related Blogs</p>
+			<ul>
+			{
+				relatedPosts.map((post) => (
+					<li class="mt-0 pt-2">
+						<a
+							class:list={[
+								`inline-block no-underline transition-colors hover:text-foreground `,
+								{
+									"text-foreground": pathname.endsWith(post.slug),
+									"text-muted-foreground": !pathname.endsWith(post.slug),
+								},
+							]}
+							href={`/blog/${post.slug}`}
+						>
+							{post.data.title}
+						</a>
+					</li>
+				))
+			}
+			</ul>
+		</div>
+		<div class="col-span-4 bg-red-400">
 			<div class="mb-4">
 				<div
 					class="flex h-full items-center space-x-1 text-sm text-muted-foreground"
@@ -45,12 +73,6 @@ const { Content, headings } = await post.render();
 						<div class="font-medium text-foreground">{post.data.title}</div>
 					</a>
 				</div>
-				<span
-					class="ml-auto text-balance text-sm leading-loose text-muted-foreground"
-				>
-					โดย <a class="underline" href={author.data.link}>{author.data.title}</a> เมื่อ
-					{dayjs(post.data.pubDate).format("LL")}
-				</span>
 			</div>
 			<div class="flex flex-col">
 				<div class="space-y-1">
@@ -64,11 +86,11 @@ const { Content, headings } = await post.render();
 			</div>
 
 			<div
-				class="prose prose-h2:text-2xl prose-h3:text-xl prose-h2:pb-2 prose-p:text-base col-span-4 py-2 md:py-8 prose-img:rounded-xl prose-h1:border-b prose-h2:border-b dark:prose-invert lg:prose-xl"
+				class="prose bg-red-200 prose-h2:text-2xl prose-h3:text-xl prose-h2:pb-2 prose-p:text-base col-span-4 py-2 md:py-8 prose-img:rounded-xl prose-h1:border-b prose-h2:border-b dark:prose-invert lg:prose-xl"
 			>
 				<Content />
 
-				<div class="flex flex-row items-center justify-between">
+				<div class="flex flex-row items-center mt-16 justify-between">
 					{
 						post.data.prev && (
 							<a
@@ -120,7 +142,15 @@ const { Content, headings } = await post.render();
 						)
 					}
 				</div>
-				<div class="border-t mt-8">
+				<div
+					class="text-balance mt-8 text-sm leading-loose text-muted-foreground"
+				>
+					โดย <a class="underline" href={author.data.link}
+						>{author.data.title}</a
+					> เมื่อ
+					{dayjs(post.data.pubDate).format("LL")}
+				</div>
+				<div class="border-t">
 					<p class="text-md text-muted-foreground">หมวดหมู่ที่เกี่ยวข้อง</p>
 					<div class="space-x-2">
 						{
@@ -139,13 +169,18 @@ const { Content, headings } = await post.render();
 				</div>
 			</div>
 		</div>
-		<div class="hidden md:block font-medium space-y-2  sticky h-fit top-20">
-			On this page
+		<div class="hidden md:block font-medium space-y-2 sticky h-fit top-20">
+			<p class="font-semibold">On This Page</p>
 			<ul>
 				{
-					headings.map((id) => (
+					headings.map((heading) => (
 						<li class="mt-0 pt-2">
-							<a class={`inline-block no-underline transition-colors hover:text-foreground text-muted-foreground pl-${id.depth}`} href={`#${id.slug}`} >{id.text}</a>
+							<a
+								class={`inline-block no-underline transition-colors hover:text-foreground text-muted-foreground`}
+								href={`#${heading.slug}`}
+							>
+								{heading.text}
+							</a>
 						</li>
 					))
 				}
