@@ -29,7 +29,7 @@ const author = await getEntry(post.data.author);
 const { Content, headings } = await post.render();
 ---
 
-<BlogPost {...post.data}>
+<BlogPost {...post.data} slug={post.slug}>
 	<div class="col-span-4">
 		<div class="mb-4">
 			<div
