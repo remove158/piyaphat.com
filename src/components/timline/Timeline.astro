@@ -1,0 +1,21 @@
+---
+type TimelineProps =  {
+	date : string
+	title : string
+	details: string
+}
+type Props = TimelineProps;
+
+const props = Astro.props
+---
+
+<div class="relative">
+	<div class="dot"></div>
+	<div class="pl-10">
+		<span class="timeline-date">{props.date}</span>
+		<h3 class="text-gray-500">{props.title}</h3>
+		<p class="text-gray-500">
+			{props.details}
+		</p>
+	</div>
+</div>

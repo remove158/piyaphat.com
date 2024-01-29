@@ -1,0 +1,14 @@
+---
+type Props = { groupDateText: string;};
+
+const { groupDateText} = Astro.props;
+---
+
+<section class="my-8">
+	<div class="group-date">
+		<h2 class="group-date-text">{groupDateText}</h2>
+	</div>
+	<div class="timeline">
+		<slot/>
+	</div>
+</section>
