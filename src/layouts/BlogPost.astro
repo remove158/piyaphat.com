@@ -4,7 +4,6 @@ import { getCollection, type CollectionEntry } from "astro:content";
 type Props = CollectionEntry<"blog">["data"] & {slug : string};
 
 const props = Astro.props;
-const { pathname } = Astro.url;
 import GlobalLayout from "@/layouts/Global.astro";
 const relatedPosts = (
 	await getCollection("blog", (post) =>
