@@ -18,7 +18,7 @@ const DEFAULT_SEO : Props = {
 	image : IMAGE_DEFAULT
 }
 
-const props = Object.assign({} as Props, DEFAULT_SEO, Astro.props)
+const props = Object.assign( DEFAULT_SEO, Astro.props)
 ---
 
 <script is:inline>

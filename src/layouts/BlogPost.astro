@@ -18,7 +18,7 @@ const relatedPosts = (
 	image={props.heroImage}
 >
 	<div class="grid grid-cols-4 md:grid-cols-6">
-		<div class="hidden mr-4 md:block font-medium space-y-2 sticky h-fit top-20">
+		<div class="hidden mr-4 md:block font-medium space-y-2 sticky h-fit top-20 ">
 			<p class="font-semibold">Related Blogs</p>
 			<ul>
 				{
@@ -26,7 +26,7 @@ const relatedPosts = (
 						<li class="mt-0 pt-2">
 							<a
 								class:list={[
-									`inline-block no-underline transition-colors hover:text-foreground `,
+									`inline-block overflow-ellipsis  no-underline transition-colors hover:text-foreground `,
 									{
 										"text-foreground":props.slug === post.slug,
 										"text-muted-foreground": props.slug !== post.slug,
