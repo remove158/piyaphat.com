@@ -3,5 +3,6 @@
 
 export const SITE_TITLE = 'Piyaphat.com';
 export const SITE_DESCRIPTION = `Hi, I'm Plangton. Debugging IRL, dominating in-game.`;
+export const IMAGE_DEFAULT = `images/me.jpg`;
 export const GITHUB_LINK = 'https://www.github.com/remove158'
 export const GITHUB_REPO_LINK = 'https://www.github.com/remove158/piyaphat.com'

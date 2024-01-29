@@ -2,16 +2,23 @@
 import '@/styles/globals.css'
 import '@fontsource/roboto';
 import BaseHead from '@/components/BaseHead.astro'
-import { SITE_DESCRIPTION, SITE_TITLE } from '@/consts';
+import { IMAGE_DEFAULT, SITE_DESCRIPTION, SITE_TITLE } from '@/consts';
 import Header from '@/components/Header.astro'
 import Footer from '@/components/Footer.astro'
 
-interface Props {
+type Props = {
 	title ?: string;
 	description ?: string;
 	image ?: string;
 }
-const { title = SITE_TITLE, description = SITE_DESCRIPTION, image } = Astro.props
+
+const DEFAULT_SEO : Props = {
+	title : SITE_TITLE,
+	description: SITE_DESCRIPTION,
+	image : IMAGE_DEFAULT
+}
+
+const props = Object.assign({} as Props, DEFAULT_SEO, Astro.props)
 ---
 
 <script is:inline>
@@ -34,7 +41,7 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION, image } = Astro.prop
 </script>
 
 <html lang="en">
-	<BaseHead title={title} description={description} image={image}/>
+	<BaseHead title={props.title} description={props.description} image={props.image}/>
 	<body>
 		<Header/>
 		<div class="py-4 md:pt-8 border-b">

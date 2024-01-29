@@ -1,15 +1,47 @@
 ---
-import { getEntry, type CollectionEntry } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, heroImage, author } =
-	Astro.props;
+const props = Astro.props;
+const { pathname } = Astro.url;
 import GlobalLayout from "@/layouts/Global.astro";
-
+const relatedPosts = (
+	await getCollection("blog", (post) =>
+		post.data.categories.map((cate) => cate.id).includes(props.categories[0].id),
+	)
+).sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
 ---
 
-
-<GlobalLayout title={title} description={description} image={heroImage}>
-	<slot />
+<GlobalLayout
+	title={props.title}
+	description={props.description}
+	image={props.heroImage}
+>
+	<div class="grid grid-cols-4 md:grid-cols-6">
+		<div class="hidden md:block font-medium space-y-2 sticky h-fit top-20">
+			<p class="font-semibold">Related Blogs</p>
+			<ul>
+				{
+					relatedPosts.map((post) => (
+						<li class="mt-0 pt-2">
+							<a
+								class:list={[
+									`inline-block no-underline transition-colors hover:text-foreground `,
+									{
+										"text-foreground": pathname.endsWith(post.slug),
+										"text-muted-foreground": !pathname.endsWith(post.slug),
+									},
+								]}
+								href={`/blog/${post.slug}`}
+							>
+								{post.data.title}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+		<slot />
+	</div>
 </GlobalLayout>
