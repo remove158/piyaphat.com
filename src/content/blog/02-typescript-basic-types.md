@@ -1,5 +1,5 @@
 ---
-title: 'ตอนที่ 2 ทำความรู้จักกับ Types เบื้อต้น'
+title: 'ตอนที่ 2 ทำความรู้จักกับ Types เบื้องต้น'
 author: 'piyaphat' 
 description: 'มหากาพย์ TypeScript จากมือใหม่สู่มือโปร Zero to Hero'
 pubDate: 'Jan 31 2024'
@@ -118,4 +118,4 @@ backpack.add(23);
 
 สำหรับ EP นี้ขอปูพื้นฐาน Type ไว้เพียงเท่านี้ก่อน
 
-ตอนต่อไปเราจะตลุย Everyday Types แบบเจาะตื้นกัน !!
+ตอนต่อไปเราจะตลุย Everyday Types แบบเจาะตื้นกัน
