@@ -77,13 +77,12 @@ function getLength(obj: string | string[]) {
 |function	| typeof f === "function" |
 |array	| Array.isArray(a)| |
 
-ตัวอย่างเช่น เราสามารถ เขียนฟังค์ชั่นที่ return ค่าอะไร ขึ้นอยู่กับ type ดังนี้
+ตัวอย่างเช่น เราสามารถ เขียนฟังค์ชั่นที่ return ค่าอะไรก็ขึ้นอยู่กับ type ดังนี้
 
 ```ts
 function wrapInArray(obj: string | string[]) {
   if (typeof obj === "string") {
     return [obj];
-            
   }
   return obj;
 }
