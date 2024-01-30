@@ -4,7 +4,7 @@ author: 'piyaphat'
 description: 'เกล็ดความรู้เสริม Javascript'
 pubDate: 'Jan 27 2024'
 heroImage: '/images/javascript.png'
-categories: ['javascript', 'typescript']
+categories: ['javascript']
 ---
 
 ## TL;DR
