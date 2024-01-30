@@ -66,7 +66,7 @@ function getLength(obj: string | string[]) {
 }
 ```
 
-## Typeof
+### Typeof
 ถ้าหากว่าเราอยากรู้ว่ามันคือ type อะไร ให้ใช้คำสั่ง `typeof`:
 | Type | Predicate |
 | --- | --- |
@@ -89,7 +89,7 @@ function wrapInArray(obj: string | string[]) {
 }
 ```
 
-## Generics
+### Generics
 Generics เหมือนการสร้างตัวแปรให้กับ Type 
 
 ตัวอย่างทั่วไปเช่นการทำ Array ที่รับ Generics อยู่แล้ว
