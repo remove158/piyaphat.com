@@ -1,5 +1,5 @@
 ---
-title: 'ตอนที่ 2 การประกาศ Type ให้ตัวแปร'
+title: 'ตอนที่ 2 ทำความรู้จักกับ Types'
 author: 'piyaphat' 
 description: 'มหากาพย์ TypeScript จากมือใหม่สู่มือโปร Zero to Hero'
 pubDate: 'Jan 31 2024'
