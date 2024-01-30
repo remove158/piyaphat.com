@@ -94,6 +94,10 @@
 	.timeline-date {
 		@apply text-xs font-bold opacity-40 tracking-widest
 	}
+
+	.timeline-title {
+		@apply text-3xl text-secondary-foreground font-semibold tracking-wide mb-2
+	}
 }
 
 body {
