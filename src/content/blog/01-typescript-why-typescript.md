@@ -47,33 +47,41 @@ console.log(4 / []);  // Infinity
 
 
 ## A Typed Superset of JavaScript
+ขอแนะนำให้รู้จักกับ Superset of JavaScript หรือที่เรารู้จักกันในนาม TypeScript
 ### Syntax
-TypeScript เป็น Superset ของ JavaScript ทำให้ syntax บน JS ก็ใช้งานได้กับ TS เช่นกัน
+เนื่องจาก TypeScript เป็น Superset ของ JavaScript ทำให้ syntax บน JS ก็ใช้งานได้กับ TS เช่นกัน
 หมายความว่าถ้าโค้ด JS ของคุณมันถูกต้องอยู่แล้วคุณสามารถก๊อปปี้แล้ววางมาเป็น TypeScript ได้เลยตรง ๆ
 ### Types
 ยังไงก็ตาม เพราะมันเป็น Superset ของ JavaScript หมายความว่ามันได้มีกฎบางอย่างที่ถูกเพิ่มเข้าไป เช่น การใช้ตัวแปรใด ๆ จะไม่สามารถเปลี่ยน Type ไปมั่ว ๆ ได้ เช่น จาก string ไปเป็น number เป็นต้น
-> NOTE:  __obj.heigth__ ที่เราได้เจอไปก่อนหน้านี้ไม่ใช่ Syntax error แต่เป็นการเข้าถึง value ที่ผิด
+
+
+## TODO
+จากหัวข้อก่อนหน้า [A Typed Superset of JavaScript](#a-typed-superset-of-javascript) ที่เราเกริ่นไปว่า TypeScript เป็น Superset of JavaScript ถ้าโค้ดมันเวิร์คก๊อปมาวางก็เวิร์ค
+
+สิ่งที่เราจะทำกันใน EP นี้ก็คือเปลี่ยนนามสกุล `.js` มาเป็น `.ts` เลยโต้ง ๆ
 
 ## Results
+เพียงแค่เปลี่ยนนามสกุลจาก `.js` มาเป็น `.ts` editor ของเราก็จะฟ้องขึ้นมา แบบนี้
 
- จากเดิม run ผ่านและได้ผลลัพธ์เป็น NaN
+
+
+> จาก run ผ่านและได้ผลลัพธ์เป็น NaN
 ```ts
 const obj = { width: 10, height: 15 };
 const area = obj.width * obj.heigth;
 // Property 'heigth' does not exist on type '{ width: number; height: number; }'. Did you mean 'height'?
 ```
 
- จากเดิม run ผ่านและได้ผลลัพธ์เป็น Infinity
+> จาก run ผ่านและได้ผลลัพธ์เป็น Infinity
 ```js
 console.log(4 / []);
 // The right-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
 ```
 
-
-ทั้งหมดนี้เป็นเพียงหนึ่งใน "หลาย ๆ" เหตุผลที่คุณควรเลิกใช้ JavaScript แล้วเปลี่ยนมาใช้ TypeScript 
+นี่เป็นหนึ่งใน __" หลาย ๆ "__ เหตุผลที่คุณควร(เลิก)ใช้ JavaScript แล้วเปลี่ยนมาใช้ TypeScript 
 
 คุณจะได้เผชิญกับปัญหาเหล่านั้นอย่างแน่นอนเมื่อคุณใช้ JavaScript (การันต์ตรี 100%)
 
 ถ้าหากคุณเจอกับปัญหานั้นจนหงุดหงิดมากเกินทนแล้ว __คุณมาถูกที่แล้ว__
 
-เพราะในตอนต่อไปเราจะพาเรียนรู้ TypeScript เบื้องต้นกัน
+เพราะในซีรีส์นี้เราจะพาทุกคนตะลุย TypeScript กันแบบ Zero to Hero
