@@ -26,7 +26,9 @@ interface User {
 }
 ```
 
-หลังจากนั้นเราก็สามารถสร้าง object โดยให้มี type เป็นแบบ interface ที่เราสร้างขึ้นมาโดยใช้ syntax `: TypeName` ดังนี้
+หลังจากนั้นเราก็สามารถสร้าง object โดยให้มี type เป็นแบบ interface ที่เราสร้างขึ้นมา
+
+โดยใช้ syntax `VarName: TypeName` ดังนี้
 ```ts
 const user: User = {
   name: "Hayes",
@@ -54,12 +56,13 @@ const user: User = {
 
 ### Unions
 union คือสิ่งที่จะทำให้เราสามารถประกาศ type ที่มากกว่าหนึ่งได้ ดังนี้
+
 ```ts
 type WindowStates = "open" | "closed" | "minimized";
 type LockStates = "locked" | "unlocked";
 type PositiveOddNumbersUnderTen = 1 | 3 | 5 | 7 | 9;
 ```
-จะเอาไปใช้บนฟังค์ชันก็ได้ ดังนี้
+จะเอาไปใช้บน `function` ก็ได้ ดังนี้
 ```ts
 function getLength(obj: string | string[]) {
   return obj.length;

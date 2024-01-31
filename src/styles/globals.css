@@ -100,15 +100,26 @@
 	}
 
 	.markdown-render {
-		@apply prose prose-xl text-foreground  dark:prose-invert 
+		@apply prose prose-xl lg:prose-2xl text-foreground  dark:prose-invert 
+
+
+		before:prose-code:content-none after:prose-code:content-none
+		prose-code:bg-[#24292e]/80 prose-code:text-white
+		prose-code:rounded-sm prose-code:text-muted dark:prose-code:text-foreground
+		prose-code:px-2  prose-code:py-1
 		
+
 		prose-h1:text-2xl prose-h1:font-bold prose-h1:mb-4
 		prose-h2:text-xl prose-h2:font-semibold prose-h2:mb-3
 		prose-h3:text-lg prose-h3:font-semibold prose-h3:mb-2
+
 		prose-blockquote:text-sm prose-blockquote:text-muted-foreground prose-blockquote:italic prose-blockquote:border-l-4 prose-blockquote:border-gray-100 prose-blockquote:pl-4 prose-blockquote:mb-3
+		
 		prose-p:text-base 
+		
 		prose-img:rounded prose-img:mx-auto prose-img:mb-3
-		/* @apply prose-xl prose-td:border-b prose-thead:border-b-2  prose-h2:text-2xl prose-h3:text-xl prose-h2:pb-2 prose-p:text-base prose-blockquote:bg-secondary prose-blockquote:border-l-4 prose-blockquote:border-secondary-foreground  pb-2 md:pb-8 prose-img:rounded-xl prose-h1:border-b prose-h2:border-b dark:prose-invert  */
+
+		prose-table:text-sm 
 	}
 }
 
