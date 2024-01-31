@@ -118,7 +118,6 @@ const object = backpack.get();
 // Since the backpack variable is a string, you can't pass a number to the add function.
 backpack.add(23);
 ```
+ใน EP นี้เราได้รู้วิธีการสร้าง `interface` เบื้องต้น การกำหนด Type ให้ตัวแปร และ Composing Type เบื้องต้น สำหรับ EP นี้ขอปูพื้นฐานไว้เพียงเท่านี้ก่อน
 
-สำหรับ EP นี้ขอปูพื้นฐาน Type ไว้เพียงเท่านี้ก่อน
-
-ตอนต่อไปเราจะตลุย Everyday Types แบบเจาะตื้นกัน
+ตอนต่อไปเราจะตะลุย Everyday Types กันแบบจัดเต็มม !!!
