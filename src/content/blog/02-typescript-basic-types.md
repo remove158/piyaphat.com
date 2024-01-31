@@ -8,7 +8,7 @@ heroImage: '/images/typescript.png'
 categories: ['typescript']
 ---
 
-จาก EP ก่อนหน้าเราเพียงแค่เปลี่ยนไฟล์ `.js` มาเป็น `.ts` ใน EP นี้เราจะคนที่ย้ายจาก JavaScript มากัน
+จาก EP ก่อนหน้าเราเพียงแค่เปลี่ยนไฟล์ `.js` มาเป็น `.ts` แต่ใน EP นี้เราจะชี้ภาพรวมให้สำหรับคนที่ย้ายจาก JavaScript มากัน
 
 ## Types by Inference
 โดยทั่วไป TypeScript สามารถ Generate types ต่าง ๆ ที่มีอยู่แต่เดิมของ JavaScript ได้อยู่แล้ว
