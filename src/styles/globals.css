@@ -106,7 +106,6 @@
 		before:prose-code:content-none after:prose-code:content-none
 		prose-code:bg-[#24292e]/80 prose-code:text-white
 		prose-code:rounded-sm prose-code:text-muted dark:prose-code:text-foreground
-		prose-code:px-2  prose-code:py-1
 		
 
 		prose-h1:text-2xl prose-h1:font-bold prose-h1:mb-4
@@ -120,6 +119,10 @@
 		prose-img:rounded prose-img:mx-auto prose-img:mb-3
 
 		prose-table:text-sm 
+	}
+
+	code:not(:has(span)) {
+		@apply px-2 py-1
 	}
 }
 
