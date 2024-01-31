@@ -9,5 +9,9 @@ export default defineConfig({
 	site: 'https://www.piyaphat.com',
 	integrations: [react(), tailwind({
 		applyBaseStyles: false,
-	}), sitemap()]
+	}), sitemap()],
+	markdown: {
+		// Can be 'shiki' (default), 'prism' or false to disable highlighting
+		// syntaxHighlight: 'prism',
+	},
 });

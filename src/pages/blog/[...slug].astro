@@ -60,9 +60,10 @@ const { Content, headings } = await post.render();
 				</p>
 			</div>
 		</div>
+		
 
 		<div
-			class="prose-xl prose-td:border-b prose-thead:border-b-2  prose-h2:text-2xl prose-h3:text-xl prose-h2:pb-2 prose-p:text-base prose-blockquote:bg-secondary prose-blockquote:border-l-4 prose-blockquote:border-secondary-foreground  pb-2 md:pb-8 prose-img:rounded-xl prose-h1:border-b prose-h2:border-b dark:prose-invert "
+			class="markdown-render"
 		>
 			<Content />
 
@@ -95,7 +96,7 @@ const { Content, headings } = await post.render();
 				{
 					post.data.next && (
 						<a
-							class="inline-flex no-underline items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 ml-auto"
+							class="inline-flex text-foreground no-underline items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 ml-auto"
 							href={`/blog/${post.data.next.slug}`}
 						>
 							Next
