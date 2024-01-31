@@ -1,5 +1,5 @@
 ---
-title: 'ตอนที่ 1 ทำไมต้อง TypeScript ?'
+title: 'ตอนที่ 1 ทำไมต้อง TypeScript'
 author: 'piyaphat' 
 description: 'มหากาพย์ TypeScript จากมือใหม่สู่มือโปร Zero to Hero'
 pubDate: 'Jan 30 2024'
@@ -55,7 +55,7 @@ console.log(4 / []);  // Infinity
 ยังไงก็ตาม เพราะมันเป็น Superset ของ JavaScript หมายความว่ามันได้มีกฎบางอย่างที่ถูกเพิ่มเข้าไป เช่น การใช้ตัวแปรใด ๆ จะไม่สามารถเปลี่ยน Type ไปมั่ว ๆ ได้ เช่น จาก string ไปเป็น number เป็นต้น
 
 
-## TODO
+## Todo
 จากหัวข้อก่อนหน้า [A Typed Superset of JavaScript](#a-typed-superset-of-javascript) ที่เราเกริ่นไปว่า TypeScript เป็น Superset of JavaScript ถ้าโค้ดมันเวิร์คก๊อปมาวางก็เวิร์ค
 
 สิ่งที่เราจะทำกันใน EP นี้ก็คือเปลี่ยนนามสกุล `.js` มาเป็น `.ts` เลยโต้ง ๆ
@@ -78,6 +78,8 @@ console.log(4 / []);
 // The right-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
 ```
 
+---
+
 นี่เป็นหนึ่งใน __" หลาย ๆ "__ เหตุผลที่คุณควร(เลิก)ใช้ JavaScript แล้วเปลี่ยนมาใช้ TypeScript 
 
 คุณจะได้เผชิญกับปัญหาเหล่านั้นอย่างแน่นอนเมื่อคุณใช้ JavaScript (การันต์ตรี 100%)
@@ -85,3 +87,6 @@ console.log(4 / []);
 ถ้าหากคุณเจอกับปัญหานั้นจนหงุดหงิดมากเกินทนแล้ว __คุณมาถูกที่แล้ว__
 
 เพราะในซีรีส์นี้เราจะพาทุกคนตะลุย TypeScript กันแบบ Zero to Hero
+
+---
+ref: [TypeScript for the New Programmer](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html)

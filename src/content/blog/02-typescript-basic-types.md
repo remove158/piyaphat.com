@@ -1,5 +1,5 @@
 ---
-title: 'ตอนที่ 2 ทำความรู้จักกับ Types เบื้องต้น'
+title: 'ตอนที่ 2 TypeScript for JS Programmer'
 author: 'piyaphat' 
 description: 'มหากาพย์ TypeScript จากมือใหม่สู่มือโปร Zero to Hero'
 pubDate: 'Jan 31 2024'
@@ -7,6 +7,17 @@ prev: '01-typescript-why-typescript'
 heroImage: '/images/typescript.png'
 categories: ['typescript']
 ---
+
+จาก EP ก่อนหน้าเราเพียงแค่เปลี่ยนไฟล์ `.js` มาเป็น `.ts` ใน EP นี้เราจะคนที่ย้ายจาก JavaScript มากัน
+
+## Types by Inference
+โดยทั่วไป TypeScript สามารถ Generate types ต่าง ๆ ที่มีอยู่แต่เดิมของ JavaScript ได้อยู่แล้ว
+>  TypeScript จะทำการสรุปให้เลยว่า ตัวแปร helloWorld ของเรานั้นเป็น string
+```js
+let helloWorld = "Hello World";
+        
+//let helloWorld: string
+```
 
 ## Defining Types
 สมมุติว่าเราต้องการจะสร้าง object ซึ่งมี `name: string` และ `id: number` ถ้าหากเป็น JavaScript เราจะเขียนแบบนี้
@@ -118,6 +129,35 @@ const object = backpack.get();
 // Since the backpack variable is a string, you can't pass a number to the add function.
 backpack.add(23);
 ```
-ใน EP นี้เราได้รู้วิธีการสร้าง `interface` เบื้องต้น การกำหนด Type ให้ตัวแปร และ Composing Type เบื้องต้น สำหรับ EP นี้ขอปูพื้นฐานไว้เพียงเท่านี้ก่อน
 
-ตอนต่อไปเราจะตะลุย Everyday Types กันแบบจัดเต็มม !!!
+
+## Structural Type System
+หนึ่งในหลักการสำคัญของ TypeScript คือ Type checking จะดูแค่ shape ของ values
+
+หรือที่รู้จักกันว่า `duck typing` หรือ `structural typing`
+
+> สังเกตุที่ `logPoint(point)`
+```ts
+interface Point {
+  x: number;
+  y: number;
+}
+ 
+function logPoint(p: Point) {
+  console.log(`${p.x}, ${p.y}`);
+}
+ 
+// logs "12, 26"
+const point = { x: 12, y: 26 };
+logPoint(point); // เราไม่จำเป็บต้องประกาศ type ให้ point ขอแค่ shape มันตรงกันกับที่ประกาสไว้ก็พอ
+```
+
+---
+
+ใน EP นี้เราได้เรียนรู้ Structural Type System, Defining Types, Composing Types, Structural Type System กันแบบคร่าว ๆ ให้สำหรับคนที่เคยผ่าน ๆ JavaScript มาแล้วเพื่อที่จะได้เข้าใจ TypeScript โดยรวม
+
+แต่สำหรับมือใหม่ไม่ต้องกังวล เพราะในตอนต่อไปเราจะเราจะเริ่มเข้าสู่เนื้อเรื่อง มหากาพย์ TypeScript จากมือใหม่สู่มือโปร Zero to Hero กันอย่างเต็มตัวแล้ว
+
+
+---
+ref: [TypeScript for JavaScript Programmers](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
