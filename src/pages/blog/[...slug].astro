@@ -60,7 +60,19 @@ const { Content, headings } = await post.render();
 				</p>
 			</div>
 		</div>
-		
+		<section id="heroImage " class="">
+
+			{
+				post.data.heroImage && (
+					<img
+						src={post.data.heroImage}
+						alt={post.data.title}
+						width="full"
+						class="aspect-w-screen max-h-400 "
+					/>
+				)
+			}
+		</section>
 
 		<div
 			class="markdown-render"
@@ -149,8 +161,11 @@ const { Content, headings } = await post.render();
 		<p class="font-semibold">On This Page</p>
 		<ul>
 			{
-				headings.map((heading) => (
-					<li class="mt-0 pt-2">
+				headings.map((heading) => {
+				
+				if (heading.depth === 2) {
+					
+				return	<li class="mt-0 pt-2">
 						<a
 							class={`inline-block no-underline transition-colors hover:text-foreground text-muted-foreground`}
 							href={`#${heading.slug}`}
@@ -158,7 +173,21 @@ const { Content, headings } = await post.render();
 							{heading.text}
 						</a>
 					</li>
-				))
+				}
+
+				if (heading.depth === 3) {
+					
+				return	<li class="mt-0 pt-2 ml-4">
+						<a
+							class={`inline-block text-sm no-underline transition-colors hover:text-foreground text-muted-foreground`}
+							href={`#${heading.slug}`}
+						>
+							{heading.text}
+						</a>
+					</li>
+				}
+
+				})
 			}
 		</ul>
 	</div>
