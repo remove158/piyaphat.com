@@ -3,7 +3,7 @@ title: 'ตอนที่ 1 ทำไมต้อง TypeScript'
 author: 'piyaphat' 
 description: 'มหากาพย์ TypeScript จากมือใหม่สู่มือโปร Zero to Hero'
 pubDate: 'Jan 30 2024'
-next: '02-typescript-basic-types'
+next: '02-typescript-for-js-dev'
 heroImage: '/images/typescript.png'
 categories: ['typescript']
 ---

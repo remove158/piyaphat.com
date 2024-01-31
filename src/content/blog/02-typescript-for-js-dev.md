@@ -4,6 +4,7 @@ author: 'piyaphat'
 description: 'มหากาพย์ TypeScript จากมือใหม่สู่มือโปร Zero to Hero'
 pubDate: 'Jan 31 2024'
 prev: '01-typescript-why-typescript'
+next: '03-typescript-tools'
 heroImage: '/images/typescript.png'
 categories: ['typescript']
 ---

@@ -111,6 +111,7 @@
 		prose-h1:text-2xl prose-h1:font-bold prose-h1:mb-4
 		prose-h2:text-xl prose-h2:font-semibold prose-h2:mb-3
 		prose-h3:text-lg prose-h3:font-semibold prose-h3:mb-2
+		prose-li:text-base
 
 		prose-blockquote:text-sm prose-blockquote:text-muted-foreground prose-blockquote:italic prose-blockquote:border-l-4 prose-blockquote:border-gray-100 prose-blockquote:pl-4 prose-blockquote:mb-3
 		
