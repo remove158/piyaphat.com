@@ -7,27 +7,27 @@ import GlobalLayout from "@/layouts/Global.astro";
 <GlobalLayout title="Projects" description="ผลงานที่เคยทำ">
 	<div class="grid space-y-6">
 		<ProjectCard
-		title="Personal Blog"
-		createdAt="January 2024"
-		description="My personal website"
-		techStack={["Astro (typescript)", "Shadcn/UI"]}
-		url="https://www.piyaphat.com"
-	>
-		<ul class="ml-8 list-disc">
-			<li>About me</li>
-			<li>Projects showcase</li>
-			<li>Web blog with categories</li>
-			<li>
-				The source code is available on<!-- -->
-				<a
-					href="https://www.github.com/remove158/piyaphat.com"
-					target="_blank"
-					rel="noreferrer"
-					class="font-medium underline underline-offset-4">GitHub</a
-				>.
-			</li>
-		</ul>
-	</ProjectCard>
+			title="Personal Blog"
+			createdAt="January 2024"
+			description="My personal website"
+			techStack={["Astro (typescript)", "Shadcn/UI"]}
+			url="https://www.piyaphat.com"
+		>
+			<ul class="ml-8 list-disc">
+				<li>About me</li>
+				<li>Projects showcase</li>
+				<li>Web blog with categories</li>
+				<li>
+					The source code is available on<!-- -->
+					<a
+						href="https://www.github.com/remove158/piyaphat.com"
+						target="_blank"
+						rel="noreferrer"
+						class="font-medium underline underline-offset-4">GitHub</a
+					>.
+				</li>
+			</ul>
+		</ProjectCard>
 		<ProjectCard
 			title="Share a Bill"
 			createdAt="May 2022"
@@ -45,6 +45,25 @@ import GlobalLayout from "@/layouts/Global.astro";
 					The source code is available on<!-- -->
 					<a
 						href="https://www.github.com/remove158/weshare"
+						target="_blank"
+						rel="noreferrer"
+						class="font-medium underline underline-offset-4">GitHub</a
+					>.
+				</li>
+			</ul>
+		</ProjectCard>
+		<ProjectCard
+			title="WordPress"
+			createdAt="Oct 2022"
+			description="Init wordpress with terraform"
+			techStack={["Wordpress", "Amazon S3", "Terraform"]}
+			url="https://github.com/remove158/wordpress-with-s3"
+		>
+			<ul class="ml-8 list-disc">
+				<li>Init wordpress with s3 by terraform script</li>
+				<li>
+					The source code is available on <a
+						href="https://github.com/remove158/wordpress-with-s3"
 						target="_blank"
 						rel="noreferrer"
 						class="font-medium underline underline-offset-4">GitHub</a
@@ -86,12 +105,8 @@ import GlobalLayout from "@/layouts/Global.astro";
 			url="https://toeic-vocab.piyaphat.com"
 		>
 			<ul class="ml-8 list-disc">
-				<li>
-					สุ่มคำถามจาก 3 หมวด 1) Meaning 2) PartOfSpeech 3) Synonyms
-				</li>
-				<li>
-					มีตัวอย่างประโยคให้ดู
-				</li>
+				<li>สุ่มคำถามจาก 3 หมวด 1) Meaning 2) PartOfSpeech 3) Synonyms</li>
+				<li>มีตัวอย่างประโยคให้ดู</li>
 				<li>
 					The source code is available on <a
 						href="https://www.github.com/remove158/toeic"
@@ -102,5 +117,27 @@ import GlobalLayout from "@/layouts/Global.astro";
 				</li>
 			</ul>
 		</ProjectCard>
+		<ProjectCard
+		title="Discord Music Bot"
+		createdAt="Jan 2024"
+		description="Node.js discord music bot"
+		techStack={["Discord.js (typescript)", "Lavalink", "Websocket","Gemini"]}
+		url="https://discord.com/api/oauth2/authorize?client_id=805856620026265610&permissions=3214336&scope=bot%20applications.commands"
+	>
+		<ul class="ml-8 list-disc">
+			<li>Play music via youtube</li>
+			<li>Discord interaction</li>
+			<li>Gemini</li>
+			<li>
+				The source code is available on <a
+					href="https://github.com/remove158/discord_v2"
+					target="_blank"
+					rel="noreferrer"
+					class="font-medium underline underline-offset-4">GitHub</a
+				>.
+			</li>
+		</ul>
+	</ProjectCard>
+
 	</div>
 </GlobalLayout>
