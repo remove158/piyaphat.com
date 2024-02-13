@@ -169,7 +169,7 @@ const { Content, headings } = await post.render();
             </div>
         </div>
     </div>
-    <div class="hidden md:block font-medium space-y-2 sticky h-fit top-20 ml-8">
+    <div class="hidden md:block font-medium space-y-3 sticky h-fit top-20 ml-8">
         <p class="font-semibold">On This Page</p>
         <ul>
             {
@@ -181,7 +181,7 @@ const { Content, headings } = await post.render();
                                 class={`mt-0 pt-2 border-l-2 hover:border-blue-500 ${p} transition`}
                             >
                                 <a
-                                    class={`inline-block no-underline transition-colors hover:text-foreground text-muted-foreground text-nowrap`}
+                                    class={`inline-block no-underline transition-colors hover:text-foreground text-muted-foreground `}
                                     href={`#${heading.slug}`}
                                 >
                                     {heading.text}

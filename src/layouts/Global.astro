@@ -1,56 +1,68 @@
 ---
-import '@/styles/globals.css'
-import '@fontsource/roboto';
-import BaseHead from '@/components/BaseHead.astro'
-import { IMAGE_DEFAULT, SITE_DESCRIPTION, SITE_TITLE } from '@/consts';
-import Header from '@/components/Header.astro'
-import Footer from '@/components/Footer.astro'
+import "@/styles/globals.css";
+import "@fontsource/roboto";
+import BaseHead from "@/components/BaseHead.astro";
+import { IMAGE_DEFAULT, SITE_DESCRIPTION, SITE_TITLE } from "@/consts";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
 
 type Props = {
-	title ?: string;
-	description ?: string;
-	image ?: string;
-}
+    title?: string;
+    description?: string;
+    image?: string;
+};
 
-const DEFAULT_SEO : Props = {
-	title : SITE_TITLE,
-	description: SITE_DESCRIPTION,
-	image : IMAGE_DEFAULT
-}
+const DEFAULT_SEO: Props = {
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    image: IMAGE_DEFAULT,
+};
 
-const props = Object.assign( DEFAULT_SEO, Astro.props)
+const props = Object.assign(DEFAULT_SEO, Astro.props);
 ---
 
 <script is:inline>
-	const getThemePreference = () => {
-		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-			return localStorage.getItem('theme');
-		}
-		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-	};
-	const isDark = getThemePreference() === 'dark';
-	document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
- 
-	if (typeof localStorage !== 'undefined') {
-		const observer = new MutationObserver(() => {
-			const isDark = document.documentElement.classList.contains('dark');
-			localStorage.setItem('theme', isDark ? 'dark' : 'light');
-		});
-		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-	}
+    const getThemePreference = () => {
+        if (
+            typeof localStorage !== "undefined" &&
+            localStorage.getItem("theme")
+        ) {
+            return localStorage.getItem("theme");
+        }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+    };
+    const isDark = getThemePreference() === "dark";
+    document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+    if (typeof localStorage !== "undefined") {
+        const observer = new MutationObserver(() => {
+            const isDark = document.documentElement.classList.contains("dark");
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+        });
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ["class"],
+        });
+    }
 </script>
 
 <html lang="en">
-	<BaseHead title={props.title} description={props.description} image={props.image}/>
-	<body>
-		<Header/>
-		<div class="py-4 md:pt-8 border-b">
-			<div class="px-4 md:container">
-				<div class="min-h-screen">
-					<slot />
-				</div>
-			</div>
-		</div>
-		<Footer/>
-	</body>
+    <BaseHead
+        title={props.title}
+        description={props.description}
+        image={props.image}
+    />
+    <body>
+        <Header />
+        <div class="py-4 md:pt-8 border-b">
+            <div class="px-4 md:container">
+                <div class="min-h-screen">
+                    <slot />
+                </div>
+            </div>
+        </div>
+        <Footer />
+    </body>
 </html>
