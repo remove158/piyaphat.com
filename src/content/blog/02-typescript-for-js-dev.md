@@ -15,7 +15,7 @@ categories: ["typescript"]
 
 ## Types by Inference
 
-TypeScript สามารถดึง Type ของตัวแปรจากค่าที่กำหนดให้โดยอัตโนมัติโดยทั่วไป TypeScript สามารถ Generate types ต่าง ๆ ที่มีอยู่แต่เดิมของ JavaScript ได้อยู่แล้ว
+TypeScript สามารถดึง Type ของตัวแปรจากค่าที่กำหนดให้โดยอัตโนมัติโดยทั่วไป
 
 > TypeScript สรุป type ให้ว่า helloWorld เป็น string
 
