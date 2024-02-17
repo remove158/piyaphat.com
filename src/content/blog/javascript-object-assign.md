@@ -7,7 +7,7 @@ heroImage: "/images/javascript.png"
 categories: ["javascript", "typescript"]
 ---
 
-## TL;DR
+## Hot Take
 
 > เราสามารถใช้คำสัง `Object.assign(target, source)` ในการรวม object สองตัวเข้าด้วยกันได้
 
@@ -37,6 +37,6 @@ function createNewPage(options = {}) {
         pageSize: "A4",
         backgroundColor: "#000",
     };
-    options = Object.assign(defaultOptions, options);
+    options = Object.assign({}, defaultOptions, options);
 }
 ```
