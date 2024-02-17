@@ -1,5 +1,5 @@
 ---
-layout: "../layouts/HomeLayout.astro"
+layout: "../layouts/HomePage.astro"
 text: "Hi, I'm Plangton"
 tagline: "Debugging IRL, dominating in-game."
 imageURL: "/images/me.jpg"

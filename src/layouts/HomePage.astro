@@ -2,7 +2,7 @@
 // component imports
 import GroupDate from "../components/timline/GroupDate.astro";
 import Timeline from "../components/timline/Timeline.astro";
-import GlobalLayout from "../layouts/BaseLayout.astro";
+import GlobalLayout from "./BaseLayout.astro";
 import type { MarkdownLayoutProps } from "astro";
 
 type TimelineEvent = {
@@ -13,7 +13,7 @@ type TimelineEvent = {
 
 type TimelineGroup = {
     name: string;
-    events: TimelineEvent[];
+    events: Array<TimelineEvent>;
 };
 
 type Props = MarkdownLayoutProps<{
@@ -21,11 +21,9 @@ type Props = MarkdownLayoutProps<{
     tagline: string;
     imageURL: string;
 
-    timeline: TimelineGroup[];
+    timeline: Array<TimelineGroup>;
 }>;
 
-// Now, `frontmatter`, `url`, and other Markdown layout properties
-// are accessible with type safety
 const { frontmatter } = Astro.props;
 ---
 

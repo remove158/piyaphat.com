@@ -1,0 +1,66 @@
+---
+// component imports
+import { MarkdownLayoutProps } from "astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import GlobalLayout from "./BaseLayout.astro";
+import { prefetch } from "astro:prefetch";
+type Project = {
+    title: string;
+    description: string;
+    createdAt: string;
+    stack: Array<string>;
+    details?: Array<string>;
+    url: string;
+    git?: string;
+    sso?: string;
+};
+type Props = MarkdownLayoutProps<{
+    projects: Array<Project>;
+}>;
+
+const { frontmatter } = Astro.props;
+---
+
+<GlobalLayout title="Projects" description="ผลงานที่เคยทำ">
+    <div class="grid space-y-6">
+        {
+            frontmatter.projects.map((project) => (
+                <ProjectCard
+                    title={project.title}
+                    createdAt={project.createdAt}
+                    description={project.description}
+                    techStack={project.stack}
+                    url={project.url}
+                >
+                    <ul class="ml-8 list-disc">
+                        {project.details && project.details.map((detail) => (
+                            <li>{detail}</li>
+                        ))}
+                         {project.sso && (
+                        <li>
+                             A standalone chula-sso-mock based on 
+                            <a
+                                href={project.sso}
+                                target="_blank"
+                                rel="noreferrer"
+                                class="font-medium underline underline-offset-4"
+                                >Chula SSO</a>.
+                        </li>
+                        )}
+                        {project.git && (
+                        <li>
+                            The source code is available on<!-- -->
+                            <a
+                                href={project.git}
+                                target="_blank"
+                                rel="noreferrer"
+                                class="font-medium underline underline-offset-4"
+                                >GitHub</a>
+                        </li>
+                        )}
+                    </ul>
+                </ProjectCard>
+            ))
+        }
+    </div>
+</GlobalLayout>
