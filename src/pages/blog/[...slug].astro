@@ -28,7 +28,7 @@ const author = await getEntry(post.data.author);
 const { Content, headings } = await post.render();
 ---
 
-<BlogPost {...post.data} slug={post.slug}>
+<BlogPost {...post.data} slug={post.slug} headings={headings}>
     <div class="col-span-4">
         <div class="mb-4">
             <div
@@ -70,6 +70,7 @@ const { Content, headings } = await post.render();
                     </p>
                 </div>
             </div>
+
             <section id="heroImage " class="">
                 {
                     post.data.heroImage && (
@@ -86,7 +87,7 @@ const { Content, headings } = await post.render();
             <div class="markdown-render">
                 <Content />
 
-                <div class="flex flex-row items-center mt-16 justify-between">
+                <div class="flex flex-row items-center my-8 justify-between">
                     {
                         post.data.prev && (
                             <a
@@ -139,7 +140,7 @@ const { Content, headings } = await post.render();
                     }
                 </div>
                 <div
-                    class="text-balance mt-8 text-sm leading-loose text-muted-foreground"
+                    class="text-balance text-sm leading-loose text-muted-foreground"
                 >
                     โดย <a class="underline" href={author.data.link}
                         >{author.data.title}</a
@@ -168,29 +169,5 @@ const { Content, headings } = await post.render();
                 </div>
             </div>
         </div>
-    </div>
-    <div class="hidden md:block font-medium space-y-3 sticky h-fit top-20 ml-8">
-        <p class="font-semibold">On This Page</p>
-        <ul>
-            {
-                headings.map((heading) => {
-                    if (heading.depth === 2 || heading.depth === 3) {
-                        const p = heading.depth === 2 ? "pl-4" : "pl-8";
-                        return (
-                            <li
-                                class={`mt-0 pt-2 border-l-2 hover:border-blue-500 ${p} transition`}
-                            >
-                                <a
-                                    class={`inline-block no-underline transition-colors hover:text-foreground text-muted-foreground `}
-                                    href={`#${heading.slug}`}
-                                >
-                                    {heading.text}
-                                </a>
-                            </li>
-                        );
-                    }
-                })
-            }
-        </ul>
     </div>
 </BlogPost>

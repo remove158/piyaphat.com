@@ -1,10 +1,14 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
 
-type Props = CollectionEntry<"blog">["data"] & { slug: string };
+type Props = CollectionEntry<"blog">["data"] & {
+    slug: string;
+    headings: Array<MarkdownHeading>;
+};
 
 const props = Astro.props;
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { MarkdownHeading } from "astro";
 const relatedPosts = (
     await getCollection("blog", (post) =>
         post.data.categories
@@ -48,5 +52,32 @@ const relatedPosts = (
             </ul>
         </div>
         <slot />
+
+        <div
+            class="hidden md:block font-medium sticky h-fit top-20 ml-8 space-y-4"
+        >
+            <p class="font-semibold">On This Page</p>
+            <ul>
+                {
+                    props.headings.map((heading) => {
+                        if (heading.depth === 2 || heading.depth === 3) {
+                            const p = heading.depth === 2 ? "pl-4" : "pl-8";
+                            return (
+                                <li
+                                    class={`pt-2 border-l-2 hover:border-blue-500 ${p} transition`}
+                                >
+                                    <a
+                                        class={`inline-block no-underline transition-colors hover:text-foreground text-muted-foreground `}
+                                        href={`#${heading.slug}`}
+                                    >
+                                        {heading.text}
+                                    </a>
+                                </li>
+                            );
+                        }
+                    })
+                }
+            </ul>
+        </div>
     </div>
 </BaseLayout>

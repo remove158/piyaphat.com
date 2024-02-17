@@ -1,14 +1,15 @@
 ---
-title: 'ตอนที่ 1 ทำไมต้อง TypeScript'
-author: 'piyaphat' 
-description: 'มหากาพย์ TypeScript จากมือใหม่สู่มือโปร Zero to Hero'
-pubDate: 'Jan 30 2024'
-next: '02-typescript-for-js-dev'
-heroImage: '/images/typescript.png'
-categories: ['typescript']
+title: "ตอนที่ 1 ทำไมต้อง TypeScript"
+author: "piyaphat"
+description: "มหากาพย์ TypeScript จากมือใหม่สู่มือโปร Zero to Hero"
+pubDate: "Jan 30 2024"
+next: "02-typescript-for-js-dev"
+heroImage: "/images/typescript.png"
+categories: ["typescript"]
 ---
 
 ## What is JavaScript
+
 ก่อนจะพูดถึง TypeScript เรามาคุยกันก่อนว่า JavaScript คืออะไร ?
 
 JavaScript คือภาษาโปรแกรมที่เอาไว้ใช้สร้างปฏิสัมพันธ์บนเว็บเพจ พูดง่ายๆ คือ ทำให้เว็บเพจของเราเคลื่อนไหวได้นั่นเอง
@@ -18,18 +19,22 @@ JavaScript คือภาษาโปรแกรมที่เอาไว้
 ในภายหลัง JS ถูกเอามาใช้นอกจากบน browser โดยใช้ node.js โดยมีหลักการว่า "run anywhere" ทำให้กลายเป็นตัวเลือกแรก ๆ เมื่อเราต้องการทำ cross-platform development ในปัจจุบันจึงมีนักพัฒนามามายที่ใช้ JavaScript
 
 ## Why it's bad
+
 ด้วยความที่มันถูก designed มาให้ใช้งานง่ายและยืดหยุ่นทำให้เกิดสิ่งเหล่านี้ตามมา
 
- เครื่องหมาย `==` ใน JavaScript กับพฤตกรรมสุดแปลก
+เครื่องหมาย `==` ใน JavaScript กับพฤตกรรมสุดแปลก
+
 ```js
 if ("" == 0) {
-  // It is! But why??
+    // It is! But why??
 }
 if (1 < x < 3) {
-  // True for *any* value of x!
+    // True for *any* value of x!
 }
 ```
+
 เข้าถึง properties ที่ไม่มีอยู่ก็ได้นะ
+
 ```js
 const obj = { width: 10, height: 15 };
 // Why is this NaN? Spelling is hard!
@@ -37,35 +42,40 @@ const area = obj.width * obj.heigth;
 ```
 
 แบบนี้ก็ได้
+
 ```js
-console.log(4 / []);  // Infinity
+console.log(4 / []); // Infinity
 ```
 
-ซึ่งจริง ๆ แล้วภาษาส่วนใหญ่จะ throw error โดยที่ไม่ยอมให้ run ได้ด้วยซ้ำ (ตั้งแต่ compile) 
+ซึ่งจริง ๆ แล้วภาษาส่วนใหญ่จะ throw error โดยที่ไม่ยอมให้ run ได้ด้วยซ้ำ (ตั้งแต่ compile)
 
 อีกหลายภาษาสามารถตรวจเจอ error นี้ได้โดยไม่ต้อง run โดยใช้สิ่งที่เรียกว่า static type checking แต่ว่าไม่ใช่สำหรับ JavaScript
 
-
 ## A Typed Superset of JavaScript
+
 ขอแนะนำให้รู้จักกับ Superset of JavaScript หรือที่เรารู้จักกันในนาม TypeScript
+
 ### Syntax
+
 เนื่องจาก TypeScript เป็น Superset ของ JavaScript ทำให้ syntax บน JS ก็ใช้งานได้กับ TS เช่นกัน
 หมายความว่าถ้าโค้ด JS ของคุณมันถูกต้องอยู่แล้วคุณสามารถก๊อปปี้แล้ววางมาเป็น TypeScript ได้เลยตรง ๆ
+
 ### Types
+
 ยังไงก็ตาม เพราะมันเป็น Superset ของ JavaScript หมายความว่ามันได้มีกฎบางอย่างที่ถูกเพิ่มเข้าไป เช่น การใช้ตัวแปรใด ๆ จะไม่สามารถเปลี่ยน Type ไปมั่ว ๆ ได้ เช่น จาก string ไปเป็น number เป็นต้น
 
-
 ## Todo
+
 จากหัวข้อก่อนหน้า [A Typed Superset of JavaScript](#a-typed-superset-of-javascript) ที่เราเกริ่นไปว่า TypeScript เป็น Superset of JavaScript ถ้าโค้ดมันเวิร์คก๊อปมาวางก็เวิร์ค
 
 สิ่งที่เราจะทำกันใน EP นี้ก็คือเปลี่ยนนามสกุล `.js` มาเป็น `.ts` เลยโต้ง ๆ
 
 ## Results
+
 เพียงแค่เปลี่ยนนามสกุลจาก `.js` มาเป็น `.ts` editor ของเราก็จะฟ้องขึ้นมา แบบนี้
 
-
-
 > จาก run ผ่านและได้ผลลัพธ์เป็น NaN
+
 ```ts
 const obj = { width: 10, height: 15 };
 const area = obj.width * obj.heigth;
@@ -73,20 +83,13 @@ const area = obj.width * obj.heigth;
 ```
 
 > จาก run ผ่านและได้ผลลัพธ์เป็น Infinity
+
 ```js
 console.log(4 / []);
 // The right-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
 ```
 
----
+นี่เป็นหนึ่งใน **" หลาย ๆ "** เหตุผลที่คุณควร(เลิก)ใช้ JavaScript แล้วเปลี่ยนมาใช้ TypeScript คุณจะได้เผชิญกับปัญหาเหล่านั้นอย่างแน่นอนเมื่อคุณใช้ JavaScript (การันต์ตรี 100%)
+ถ้าหากคุณเจอกับปัญหานั้นจนหงุดหงิดมากเกินทนแล้ว **คุณมาถูกที่แล้ว** เพราะในซีรีส์นี้เราจะพาทุกคนตะลุย TypeScript กันแบบ Zero to Hero
 
-นี่เป็นหนึ่งใน __" หลาย ๆ "__ เหตุผลที่คุณควร(เลิก)ใช้ JavaScript แล้วเปลี่ยนมาใช้ TypeScript 
-
-คุณจะได้เผชิญกับปัญหาเหล่านั้นอย่างแน่นอนเมื่อคุณใช้ JavaScript (การันต์ตรี 100%)
-
-ถ้าหากคุณเจอกับปัญหานั้นจนหงุดหงิดมากเกินทนแล้ว __คุณมาถูกที่แล้ว__
-
-เพราะในซีรีส์นี้เราจะพาทุกคนตะลุย TypeScript กันแบบ Zero to Hero
-
----
 ref: [TypeScript for the New Programmer](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html)
