@@ -8,7 +8,7 @@ heroImage: "/images/typescript.png"
 categories: ["typescript"]
 ---
 
-JavaScript เป็นภาษาที่มี dynamic type checking หมายความว่าประเภทของตัวแปรจะไม่ถูกตรวจสอบจนกว่าจะรันโปรแกรม
+**JavaScript** เป็นภาษาที่มี **dynamic type checking** หมายความว่าประเภทของตัวแปรจะไม่ถูกตรวจสอบจนกว่าจะรันโปรแกรม
 
 ```ts
 // Accessing the property 'toLowerCase'
@@ -33,7 +33,7 @@ message();
 const message = "Hello World!";
 ```
 
-ก็จะรู้ได้ว่าถ้าเรา run `message.toLowerCase()` ก็จะได้ค่าของ message ที่เป็นตัวพิมพ์เล็ก
+ก็จะรู้ได้ว่าถ้าเรา run `message.toLowerCase()` ก็จะได้ค่าของ **message** ที่เป็นตัวพิมพ์เล็ก
 
 ## Static type-checking
 
