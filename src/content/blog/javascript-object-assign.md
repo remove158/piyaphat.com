@@ -7,13 +7,17 @@ heroImage: "/images/javascript.png"
 categories: ["javascript", "typescript"]
 ---
 
+**เคยไหม?** ต้องการตั้งค่าเริ่มต้นให้กับตัวแปรหลายตัวใน object
+วิธีดั้งเดิมนั้น เราต้องใช้ `||` เช็คทีละตัว
+ทั้งยุ่งยากและอาจทำให้ลืมตั้งค่าบางตัวได้
+
+**แต่มีวิธีที่ง่ายกว่านั้น!**
+
 ## Hot Take
 
 > เราสามารถใช้คำสัง `Object.assign(target, source)` ในการรวม object สองตัวเข้าด้วยกันได้
 
 ## Traditional
-
-แต่เดิมนั้นเรามีวิธีการเซ็ตค่า default ให้ตัวแปร โดยใช้ `||` ในการเซ็ตค่าเริ่มต้นซึ่งต้องทำการเซ็ตทุก ๆ ตัวทำให้ผลออกมาได้ดังนี้
 
 ```js
 function createNewPage(options) {
@@ -26,9 +30,14 @@ function createNewPage(options) {
 }
 ```
 
+### Cons
+
+-   ยุ่งยาก ต้องเขียนโค้ดซ้ำ ๆ
+-   เสี่ยงต่อการลืมตั้งค่าบางตัวแปร
+
 ## Good Practice
 
-ใช้คำสัง `Object.assign(target, source)` ในการรวม object สองตัวเข้าด้วยกัน ทำให้มั่นใจได้ว่าเรากำหนดครบทุก feild อย่างแน่นอน
+ใช้คำสัง `Object.assign(target, source)`
 
 ```js
 function createNewPage(options = {}) {
@@ -40,3 +49,17 @@ function createNewPage(options = {}) {
     options = Object.assign({}, defaultOptions, options);
 }
 ```
+
+### Pros
+
+-   สั้นกระชับ เขียนโค้ดน้อยลง
+-   มั่นใจได้ว่าตั้งค่าครบทุกตัว
+-   เข้าใจง่าย อ่านโค้ดได้ง่ายขึ้น
+
+## Summary
+
+`Object.assign` เป็นเครื่องมือที่มีประโยชน์ในการรวม object สองตัวเข้าด้วยกัน
+ช่วยให้เขียนโค้ดได้สั้นลง เข้าใจง่าย
+และมั่นใจได้ว่าตั้งค่าครบทุกตัว
+
+**ลองใช้ดูสิ!**
