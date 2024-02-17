@@ -30,7 +30,7 @@ const { Content, headings } = await post.render();
 
 <BlogPost {...post.data} slug={post.slug} headings={headings}>
     <div class="col-span-4">
-        <div class="mb-4">
+        <main class="mb-4">
             <div
                 class="flex h-full items-center space-x-1 text-sm text-muted-foreground"
             >
@@ -168,6 +168,6 @@ const { Content, headings } = await post.render();
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
 </BlogPost>
