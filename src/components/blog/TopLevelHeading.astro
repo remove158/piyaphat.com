@@ -1,0 +1,42 @@
+---
+import { getEntries, type CollectionEntry } from "astro:content";
+import { ChevronRight } from "lucide-react";
+
+type Props = CollectionEntry<"blog">;
+
+const post = Astro.props;
+const categories = await getEntries(post.data.categories);
+const levels = [
+    {
+        title: `${categories[0].data.title}`,
+        href: `/categories/${categories[0].id}`,
+    },
+    {
+        title: post.data.title,
+        href: `/blog/${post.slug}`,
+    },
+];
+---
+
+<nav class="flex h-full items-center space-x-1 text-sm text-muted-foreground">
+    <a href="/blog">
+        <div
+            class="overflow-hidden text-ellipsis whitespace-nowrap hover:text-foreground"
+        >
+            Blog
+        </div>
+    </a>
+    {
+        levels.map((level, index) => (
+            <>
+                <ChevronRight width={15} height={15} />
+                <a
+                    class="overflow-hidden text-ellipsis whitespace-nowrap hover:text-foreground"
+                    href={level.href}
+                >
+                    {level.title}
+                </a>
+            </>
+        ))
+    }
+</nav>
