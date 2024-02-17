@@ -1,9 +1,8 @@
 ---
 // component imports
-import { MarkdownLayoutProps } from "astro";
+import type { MarkdownLayoutProps } from "astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import BaseLayout from "./BaseLayout.astro";
-import { prefetch } from "astro:prefetch";
 type Project = {
     title: string;
     description: string;
