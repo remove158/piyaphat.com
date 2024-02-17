@@ -9,13 +9,15 @@ heroImage: "/images/typescript.png"
 categories: ["typescript"]
 ---
 
-จาก EP ก่อนหน้าเราเพียงแค่เปลี่ยนไฟล์ `.js` มาเป็น `.ts` แต่ใน EP นี้เราจะชี้ภาพรวมให้สำหรับคนที่ย้ายจาก JavaScript มากัน
+จาก EP ที่แล้ว เราได้เรียนรู้วิธีแปลงไฟล์ JavaScript เป็น TypeScript และทำความรู้จักกับ Types เบื้องต้น
+
+ใน EP นี้ เราจะมาเจาะลึกเกี่ยวกับ Types เพิ่มเติม เหมาะสำหรับผู้ที่เคยเขียน JavaScript มาก่อน
 
 ## Types by Inference
 
-โดยทั่วไป TypeScript สามารถ Generate types ต่าง ๆ ที่มีอยู่แต่เดิมของ JavaScript ได้อยู่แล้ว
+TypeScript สามารถดึง Type ของตัวแปรจากค่าที่กำหนดให้โดยอัตโนมัติโดยทั่วไป TypeScript สามารถ Generate types ต่าง ๆ ที่มีอยู่แต่เดิมของ JavaScript ได้อยู่แล้ว
 
-> TypeScript จะทำการสรุปให้เลยว่า ตัวแปร helloWorld ของเรานั้นเป็น string
+> TypeScript สรุป type ให้ว่า helloWorld เป็น string
 
 ```js
 let helloWorld = "Hello World";
@@ -25,34 +27,25 @@ let helloWorld = "Hello World";
 
 ## Defining Types
 
-สมมุติว่าเราต้องการจะสร้าง object ซึ่งมี `name: string` และ `id: number` ถ้าหากเป็น JavaScript เราจะเขียนแบบนี้
-
-```js
-const user = {
-    name: "Hayes",
-    id: 0,
-};
-```
-
-เราสามารถกำหนดรูปให้ตัวแปรโดยใช้ interface declaration ดังนี้
+เราสามารถกำหนด Type ของตัวแปรได้ด้วยตัวเอง โดยใช้ interface
 
 ```ts
 interface User {
     name: string;
     id: number;
 }
-```
 
-หลังจากนั้นเราก็สามารถสร้าง object โดยให้มี type เป็นแบบ interface ที่เราสร้างขึ้นมา
-
-โดยใช้ syntax `VarName: TypeName` ดังนี้
-
-```ts
 const user: User = {
     name: "Hayes",
     id: 0,
 };
 ```
+
+### Pros
+
+-   ช่วยให้โค้ดอ่านง่าย เข้าใจง่าย
+-   ป้องกันการเขียนโค้ดผิดพลาด
+-   ช่วยให้ TypeScript ตรวจจับ Error ได้ง่าย
 
 > ข้อสังเกตุ เราจะจะไม่สามารถสร้าง properties อื่นที่เราไม่ได้ประกาศไว้แต่แรกได้ ดังนี้
 
@@ -74,7 +67,7 @@ const user: User = {
 
 ### Unions
 
-union คือสิ่งที่จะทำให้เราสามารถประกาศ type ที่มากกว่าหนึ่งได้ ดังนี้
+ประกาศ Type ที่รองรับค่าได้หลายแบบ
 
 ```ts
 type WindowStates = "open" | "closed" | "minimized";
@@ -145,7 +138,7 @@ backpack.add(23);
 
 ## Structural Type System
 
-หนึ่งในหลักการสำคัญของ TypeScript คือ Type checking จะดูแค่ shape ของ values
+TypeScript ตรวจสอบ Type ของตัวแปรจากโครงสร้างของข้อมูลหนึ่งในหลักการสำคัญของ TypeScript คือ Type checking จะดูแค่ shape ของ values
 
 หรือที่รู้จักกันว่า `duck typing` หรือ `structural typing`
 
@@ -166,6 +159,10 @@ const point = { x: 12, y: 26 };
 logPoint(point); // เราไม่จำเป็บต้องประกาศ type ให้ point ขอแค่ shape มันตรงกันกับที่ประกาสไว้ก็พอ
 ```
 
-ใน EP นี้เราได้เรียนรู้ Structural Type System, Defining Types, Composing Types, Structural Type System กันแบบคร่าว ๆ ให้สำหรับคนที่เคยผ่าน ๆ JavaScript มาแล้วเพื่อที่จะได้เข้าใจ TypeScript โดยรวม แต่สำหรับมือใหม่ไม่ต้องกังวล เพราะในตอนต่อไปเราจะเราจะเริ่มเข้าสู่เนื้อเรื่อง มหากาพย์ TypeScript จากมือใหม่สู่มือโปร Zero to Hero กันอย่างเต็มตัวแล้ว
+**EP นี้** เน้นการสรุปเนื้อหาให้เข้าใจง่าย เหมาะสำหรับผู้ที่เคยเขียน JavaScript มาก่อน
 
-ref: [TypeScript for JavaScript Programmers](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
+**EP ต่อไป** เราจะเริ่มเรียนรู้ TypeScript ตั้งแต่พื้นฐาน เหมาะสำหรับทั้งมือใหม่และมือเก๋าใน EP นี้เราได้เรียนรู้ Structural Type System, Defining Types, Composing Types, Structural Type System กันแบบคร่าว ๆ ให้สำหรับคนที่เคยผ่าน ๆ JavaScript มาแล้วเพื่อที่จะได้เข้าใจ TypeScript โดยรวม แต่สำหรับมือใหม่ไม่ต้องกังวล เพราะในตอนต่อไปเราจะเราจะเริ่มเข้าสู่เนื้อเรื่อง มหากาพย์ TypeScript จากมือใหม่สู่มือโปร Zero to Hero กันอย่างเต็มตัวแล้ว
+
+## References
+
+-   TypeScript for JavaScript Programmers: https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html
