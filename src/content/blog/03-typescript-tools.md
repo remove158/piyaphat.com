@@ -62,6 +62,12 @@ let user = "Jane User";
 document.body.textContent = greeter(user);
 ```
 
-ในบทความนี้เราได้รู้วิธีการติดตั้ง TypeScript และเรียนรู้ TypeScript Tooling พื้นฐาน ในตอนต่อไปเราจะเข้าสู่ TypeScript Basic กัน
+**บทความนี้**
+เราได้เรียนรู้วิธีการติดตั้ง TypeScript และ TypeScript Tooling พื้นฐาน
 
-ref: [TypeScript Tooling](https://www.typescriptlang.org/docs/handbook/typescript-tooling-in-5-minutes.html)
+**ในตอนต่อไป**
+เราจะเข้าสู่ TypeScript Basic กัน
+
+## References
+
+-   TypeScript Tooling: https://www.typescriptlang.org/docs/handbook/typescript-tooling-in-5-minutes.html
