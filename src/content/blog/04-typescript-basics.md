@@ -57,4 +57,4 @@ const message = "Hello World!";
 
 ## References
 
--   The Basics: https://www.typescriptlang.org/docs/handbook/2/basic-types.htmlref: [The Basics](https://www.typescriptlang.org/docs/handbook/2/basic-types.html)
+-   The Basics: https://www.typescriptlang.org/docs/handbook/2/basic-types.html
