@@ -8,9 +8,7 @@ heroImage: "/images/typescript.png"
 categories: ["typescript"]
 ---
 
-ทุกค่าใน Javascript จะมี set of behaviors ซึ่งจะสามารถทำอะไรได้ก็ต้องลองลูบ ๆ คลำ ๆ ดู
-
-ฟังดูแปลก ๆ แต่ขออธิบายด้วยตัวอย่างดังนี้ สมมุติว่าเรามีตัวแปรชื่อว่า `message`
+JavaScript เป็นภาษาที่มี dynamic type checking หมายความว่าประเภทของตัวแปรจะไม่ถูกตรวจสอบจนกว่าจะรันโปรแกรม
 
 ```ts
 // Accessing the property 'toLowerCase'
@@ -35,7 +33,7 @@ message();
 const message = "Hello World!";
 ```
 
-ก็จะเดาได้ว่าถ้าเรา run `message.toLowerCase()` ก็จะได้ค่าของ message ที่เป็นตัวพิมพ์เล็ก
+ก็จะรู้ได้ว่าถ้าเรา run `message.toLowerCase()` ก็จะได้ค่าของ message ที่เป็นตัวพิมพ์เล็ก
 
 ## Static type-checking
 
@@ -57,4 +55,6 @@ const message = "Hello World!";
 
 > TBD
 
-ref: [The Basics](https://www.typescriptlang.org/docs/handbook/2/basic-types.html)
+## References
+
+-   The Basics: https://www.typescriptlang.org/docs/handbook/2/basic-types.htmlref: [The Basics](https://www.typescriptlang.org/docs/handbook/2/basic-types.html)
