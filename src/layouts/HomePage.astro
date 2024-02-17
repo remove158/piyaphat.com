@@ -2,7 +2,7 @@
 // component imports
 import GroupDate from "../components/timline/GroupDate.astro";
 import Timeline from "../components/timline/Timeline.astro";
-import GlobalLayout from "./BaseLayout.astro";
+import BaseLayout from "./BaseLayout.astro";
 import type { MarkdownLayoutProps } from "astro";
 
 type TimelineEvent = {
@@ -27,7 +27,7 @@ type Props = MarkdownLayoutProps<{
 const { frontmatter } = Astro.props;
 ---
 
-<GlobalLayout title="Personal website">
+<BaseLayout title="Personal website">
     <section
         class="relative grid grid-cols-1 lg:grid-cols-2 space-y-4 gap-4 -mt-24"
     >
@@ -62,4 +62,4 @@ const { frontmatter } = Astro.props;
             ))
         }
     </section>
-</GlobalLayout>
+</BaseLayout>

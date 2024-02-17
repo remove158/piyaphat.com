@@ -4,7 +4,7 @@ import { getCollection, type CollectionEntry } from "astro:content";
 type Props = CollectionEntry<"blog">["data"] & { slug: string };
 
 const props = Astro.props;
-import GlobalLayout from "@/layouts/BaseLayout.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 const relatedPosts = (
     await getCollection("blog", (post) =>
         post.data.categories
@@ -14,7 +14,7 @@ const relatedPosts = (
 ).sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
 ---
 
-<GlobalLayout
+<BaseLayout
     title={props.title}
     description={props.description}
     image={props.heroImage}
@@ -49,4 +49,4 @@ const relatedPosts = (
         </div>
         <slot />
     </div>
-</GlobalLayout>
+</BaseLayout>

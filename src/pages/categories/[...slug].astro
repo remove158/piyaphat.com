@@ -1,65 +1,68 @@
 ---
-import {
-getCollection,
-type CollectionEntry
-} from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 
 import BlogCard from "@/components/BlogCard.astro";
-import GlobalLayout from "@/layouts/Global.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import { ChevronRight } from "lucide-react";
 export async function getStaticPaths() {
-	const categories = await getCollection("categories");
-	return categories.map((category) => ({
-		params: { slug: category.id },
-		props: category,
-	}));
+    const categories = await getCollection("categories");
+    return categories.map((category) => ({
+        params: { slug: category.id },
+        props: category,
+    }));
 }
 type Props = CollectionEntry<"categories">;
 
 const props = Astro.props;
-const posts = (await getCollection("blog", (post) =>
-	post.data.categories.map((cate) => cate.id).includes(props.id),
-)).sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+const posts = (
+    await getCollection("blog", (post) =>
+        post.data.categories.map((cate) => cate.id).includes(props.id)
+    )
+).sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
 ---
 
-<GlobalLayout title={props.data.title} description={`Explore the latest and greatest ${props.data.title} blogs.`} image={props.data.image}>
-	<div class="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
-		<a href="/blog">
-			<div class="overflow-hidden text-ellipsis whitespace-nowrap">
-				Blog
-			</div>
-		</a>
-		<ChevronRight width={15} height={15} />
-		<a href={`/categories/${props.id}`}>
-			<div class="font-medium text-foreground">{props.data.title}</div>
-			</a>
-	</div>
-	<div class="flex items-center justify-between my-8">
-		<div class="space-y-1">
-			<h1 class="text-6xl font-bold tracking-tight">
-				{props.data.title}
-			</h1>
-			<p class="text-lg text-muted-foreground">
-				Explore the latest and greatest {props.data.title} blogs.
-			</p>
-		</div>
-	</div>
-	<div
-		data-orientation="horizontal"
-		role="none"
-		class="shrink-0 bg-border h-[1px] w-full my-4"
-	>
-	</div>
-	<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-		{
-			posts.map((post) => (
-				<BlogCard
-					title={post.data.title}
-					description={post.data.description}
-					slug={post.slug}
-					heroImage={post.data.heroImage}
-				/>
-			))
-		}
-	</div>
-</GlobalLayout>
+<BaseLayout
+    title={props.data.title}
+    description={`Explore the latest and greatest ${props.data.title} blogs.`}
+    image={props.data.image}
+>
+    <div class="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
+        <a href="/blog">
+            <div class="overflow-hidden text-ellipsis whitespace-nowrap">
+                Blog
+            </div>
+        </a>
+        <ChevronRight width={15} height={15} />
+        <a href={`/categories/${props.id}`}>
+            <div class="font-medium text-foreground">{props.data.title}</div>
+        </a>
+    </div>
+    <div class="flex items-center justify-between my-8">
+        <div class="space-y-1">
+            <h1 class="text-6xl font-bold tracking-tight">
+                {props.data.title}
+            </h1>
+            <p class="text-lg text-muted-foreground">
+                Explore the latest and greatest {props.data.title} blogs.
+            </p>
+        </div>
+    </div>
+    <div
+        data-orientation="horizontal"
+        role="none"
+        class="shrink-0 bg-border h-[1px] w-full my-4"
+    >
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {
+            posts.map((post) => (
+                <BlogCard
+                    title={post.data.title}
+                    description={post.data.description}
+                    slug={post.slug}
+                    heroImage={post.data.heroImage}
+                />
+            ))
+        }
+    </div>
+</BaseLayout>

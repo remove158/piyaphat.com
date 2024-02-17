@@ -2,7 +2,7 @@
 // component imports
 import { MarkdownLayoutProps } from "astro";
 import ProjectCard from "../components/ProjectCard.astro";
-import GlobalLayout from "./BaseLayout.astro";
+import BaseLayout from "./BaseLayout.astro";
 import { prefetch } from "astro:prefetch";
 type Project = {
     title: string;
@@ -21,7 +21,7 @@ type Props = MarkdownLayoutProps<{
 const { frontmatter } = Astro.props;
 ---
 
-<GlobalLayout title="Projects" description="ผลงานที่เคยทำ">
+<BaseLayout title="Projects" description="ผลงานที่เคยทำ">
     <div class="grid space-y-6">
         {
             frontmatter.projects.map((project) => (
@@ -63,4 +63,4 @@ const { frontmatter } = Astro.props;
             ))
         }
     </div>
-</GlobalLayout>
+</BaseLayout>
