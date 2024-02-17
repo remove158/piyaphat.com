@@ -1,0 +1,67 @@
+---
+// component imports
+import GroupDate from "../components/timline/GroupDate.astro";
+import Timeline from "../components/timline/Timeline.astro";
+import GlobalLayout from "../layouts/BaseLayout.astro";
+import type { MarkdownLayoutProps } from "astro";
+
+type TimelineEvent = {
+    date: string;
+    title: string;
+    description: string;
+};
+
+type TimelineGroup = {
+    name: string;
+    events: TimelineEvent[];
+};
+
+type Props = MarkdownLayoutProps<{
+    text: string;
+    tagline: string;
+    imageURL: string;
+
+    timeline: TimelineGroup[];
+}>;
+
+// Now, `frontmatter`, `url`, and other Markdown layout properties
+// are accessible with type safety
+const { frontmatter } = Astro.props;
+---
+
+<GlobalLayout title="Personal website">
+    <section
+        class="relative grid grid-cols-1 lg:grid-cols-2 space-y-4 gap-4 -mt-24"
+    >
+        <div
+            class="h-screen flex flex-col item-center justify-center text-center lg:text-left"
+        >
+            <p class="text-6xl text-bold text-wrap">{frontmatter.text}</p>
+            <p class="">{frontmatter.tagline}</p>
+        </div>
+        <div class="flex items-center justify-center">
+            <img
+                class="h-full md:h-screen py-12 mt-5"
+                src={frontmatter.imageURL}
+                alt="hero image"
+            />
+        </div>
+    </section>
+    <div class="border-b w-1/2 my-16 mx-auto"></div>
+    <section id="about-me">
+        <h1 class="text-3xl text-bold text-wrap text-center">ABOUT ME</h1>
+        {
+            frontmatter.timeline.map((group) => (
+                <GroupDate groupDateText={group.name}>
+                    {group.events.map((event) => (
+                        <Timeline
+                            date={event.date}
+                            title={event.title}
+                            details={event.description}
+                        />
+                    ))}
+                </GroupDate>
+            ))
+        }
+    </section>
+</GlobalLayout>

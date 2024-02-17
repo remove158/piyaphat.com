@@ -12,13 +12,13 @@ type Props = {
     image?: string;
 };
 
-const DEFAULT_SEO: Props = {
+const DEFAULT_SEO = {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     image: IMAGE_DEFAULT,
 };
 
-const props = Object.assign(DEFAULT_SEO, Astro.props);
+const props: Required<Props> = Object.assign(DEFAULT_SEO, Astro.props);
 ---
 
 <script is:inline>
@@ -55,14 +55,12 @@ const props = Object.assign(DEFAULT_SEO, Astro.props);
         image={props.image}
     />
     <body>
-        <Header />
-        <div class="py-4 md:pt-8 border-b">
-            <div class="px-4 md:container">
-                <div class="min-h-screen">
-                    <slot />
-                </div>
+        <din class="min-h-screen">
+            <Header />
+            <div class="py-4 px-4 h-full md:py-8 border-b md:container">
+                <slot />
             </div>
-        </div>
+        </din>
         <Footer />
     </body>
 </html>
