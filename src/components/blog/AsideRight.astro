@@ -1,0 +1,31 @@
+---
+import type { MarkdownHeading } from "astro";
+
+type Props = {
+    headings: Array<MarkdownHeading>;
+};
+const props = Astro.props;
+---
+
+<p class="font-semibold">On This Page</p>
+<ul>
+    {
+        props.headings.map((heading) => {
+            if (heading.depth === 2 || heading.depth === 3) {
+                const p = heading.depth === 2 ? "pl-4" : "pl-8";
+                return (
+                    <li
+                        class={`pt-2 border-l-2 hover:border-blue-500 ${p} transition`}
+                    >
+                        <a
+                            class={`inline-block no-underline transition-colors hover:text-foreground text-muted-foreground `}
+                            href={`#${heading.slug}`}
+                        >
+                            {heading.text}
+                        </a>
+                    </li>
+                );
+            }
+        })
+    }
+</ul>

@@ -1,0 +1,38 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+type Props = {
+    curCateSlug: CollectionEntry<"blog">["data"]["categories"][0]["id"];
+    curSlug: CollectionEntry<"blog">["slug"];
+};
+
+const props = Astro.props;
+
+const relatedPosts = (
+    await getCollection("blog", (post) =>
+        post.data.categories.map((cate) => cate.id).includes(props.curCateSlug)
+    )
+).sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
+---
+
+<p class="font-semibold">Related Blogs</p>
+<ul>
+    {
+        relatedPosts.map((post) => (
+            <li class="mt-0 pt-2 overflow-clip">
+                <a
+                    class:list={[
+                        `inline-block overflow-ellipsis  no-underline transition-colors hover:text-foreground `,
+                        {
+                            "text-foreground": props.curSlug === post.slug,
+                            "text-muted-foreground":
+                                props.curSlug !== post.slug,
+                        },
+                    ]}
+                    href={`/blog/${post.slug}`}
+                >
+                    {post.data.title}
+                </a>
+            </li>
+        ))
+    }
+</ul>

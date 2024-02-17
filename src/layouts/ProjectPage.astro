@@ -21,7 +21,7 @@ const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout title="Projects" description="ผลงานที่เคยทำ">
-    <div class="grid space-y-6">
+    <main class="grid space-y-6">
         {
             frontmatter.projects.map((project) => (
                 <ProjectCard
@@ -61,5 +61,5 @@ const { frontmatter } = Astro.props;
                 </ProjectCard>
             ))
         }
-    </div>
+    </main>
 </BaseLayout>

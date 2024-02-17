@@ -1,21 +1,17 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { MarkdownHeading } from "astro";
+import AsideRight from "@/components/blog/AsideRight.astro";
+import AsideLeft from "@/components/blog/AsideLeft.astro";
+import AsideMenu from "@/components/blog/AsideMenu.astro";
 
 type Props = CollectionEntry<"blog">["data"] & {
-    slug: string;
+    slug: CollectionEntry<"blog">["slug"];
     headings: Array<MarkdownHeading>;
 };
 
 const props = Astro.props;
-import BaseLayout from "@/layouts/BaseLayout.astro";
-import type { MarkdownHeading } from "astro";
-const relatedPosts = (
-    await getCollection("blog", (post) =>
-        post.data.categories
-            .map((cate) => cate.id)
-            .includes(props.categories[0].id)
-    )
-).sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
 ---
 
 <BaseLayout
@@ -24,60 +20,16 @@ const relatedPosts = (
     image={props.heroImage}
 >
     <div class="grid grid-cols-4 md:grid-cols-6 gap-4">
-        <div
-            class="hidden mr-4 md:block font-medium space-y-2 sticky h-fit top-20"
-        >
-            <p class="font-semibold">Related Blogs</p>
-            <ul>
-                {
-                    relatedPosts.map((post) => (
-                        <li class="mt-0 pt-2 overflow-clip">
-                            <a
-                                class:list={[
-                                    `inline-block overflow-ellipsis  no-underline transition-colors hover:text-foreground `,
-                                    {
-                                        "text-foreground":
-                                            props.slug === post.slug,
-                                        "text-muted-foreground":
-                                            props.slug !== post.slug,
-                                    },
-                                ]}
-                                href={`/blog/${post.slug}`}
-                            >
-                                {post.data.title}
-                            </a>
-                        </li>
-                    ))
-                }
-            </ul>
-        </div>
+        <AsideMenu>
+            <AsideLeft
+                curCateSlug={props.categories[0].id}
+                curSlug={props.slug}
+            />
+        </AsideMenu>
         <slot />
 
-        <div
-            class="hidden md:block font-medium sticky h-fit top-20 ml-8 space-y-4"
-        >
-            <p class="font-semibold">On This Page</p>
-            <ul>
-                {
-                    props.headings.map((heading) => {
-                        if (heading.depth === 2 || heading.depth === 3) {
-                            const p = heading.depth === 2 ? "pl-4" : "pl-8";
-                            return (
-                                <li
-                                    class={`pt-2 border-l-2 hover:border-blue-500 ${p} transition`}
-                                >
-                                    <a
-                                        class={`inline-block no-underline transition-colors hover:text-foreground text-muted-foreground `}
-                                        href={`#${heading.slug}`}
-                                    >
-                                        {heading.text}
-                                    </a>
-                                </li>
-                            );
-                        }
-                    })
-                }
-            </ul>
-        </div>
+        <AsideMenu>
+            <AsideRight headings={props.headings} />
+        </AsideMenu>
     </div>
 </BaseLayout>
