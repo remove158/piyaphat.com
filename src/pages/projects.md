@@ -1,5 +1,5 @@
 ---
-layout: "../layouts/ProjectPage.astro"
+layout: "@/layouts/ProjectPage.astro"
 projects:
     - title: "Personal Website"
       createdAt: "January 2024"
