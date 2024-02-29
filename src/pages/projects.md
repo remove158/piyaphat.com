@@ -1,6 +1,22 @@
 ---
 layout: "@/layouts/ProjectPage.astro"
 projects:
+    - title: "TARAD Online"
+      createdAt: "Feb 2024"
+      description: "สร้างกลุ่มตลาดออนไลน์ของคุณได้เลยที่นี่"
+      stack:
+          - "NextJS (typescript)"
+          - "TRPC"
+          - "Shadcn/UI"
+          - "PlanetScale (mysql)"
+          - "LINE Liff"
+          - "LINE Messaging"
+      details:
+          - "กลุ่มตลาดออนไลน์"
+          - "วางขายสินค้าได้ฟรี"
+          - "มีแจ้งเตือน Order ผ่านไลน์"
+      url: "https://tarad.piyaphat.com/regent-15"
+      
     - title: "Personal Website"
       createdAt: "January 2024"
       description: "My personal website/blog."
